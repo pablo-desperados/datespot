@@ -5,8 +5,18 @@ feature 'user signs in', %Q{
   I want to sign in
   So that I can regain access to my account
 } do
+
+  # Acceptance Criteria:
+  # * If I have created an account, I should be able to sign in
+  # * I must login with my email and password for my account
+  # * If the email or password is invalid I should see an error message
+
   scenario 'specify valid credentials' do
-    user = FactoryBot.create(:user)
+    user = User.create(
+      first_name: "John",
+      last_name: "Smith",
+      email: "jsmith@email.com",
+      password: "password")
 
     visit new_user_session_path
 
