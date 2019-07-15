@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Location, type: :model do
-  binding.pry
   it { should belong_to(:user) }
 
   it { should have_valid(:user).when(User.new) }
