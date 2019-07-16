@@ -1,7 +1,17 @@
 import React from 'react'
+import { BrowserRouter, Route, Router, Switch, History } from "react-router-dom"
+import LocationFormContainer from '../containers/LocationFormContainer'
+import LocationsContainer from '../containers/LocationsContainer'
 
-export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+const App = (props) => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/locations/new" component={LocationFormContainer} />
+        <Route path="/locations" component={LocationsContainer} />
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
 export default App
