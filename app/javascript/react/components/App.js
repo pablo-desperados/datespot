@@ -1,7 +1,22 @@
 import React from 'react'
+import {BrowserRouter, Route} from 'react-router-dom'
+import Show from '../containers/Show'
 
-export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+const App = (props) => {
+  return (
+
+
+
+    <div>
+      <BrowserRouter>
+        <Route path="/" component={Show}/>
+      </BrowserRouter>
+    </div>
+
+
+
+
+  )
 }
 
 export default App
