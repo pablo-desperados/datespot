@@ -11,8 +11,4 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
   end
 
-  def show
-    @locations = Location.find(params[:id])
-  end
-
 end
