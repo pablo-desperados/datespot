@@ -1,22 +1,18 @@
 import React from 'react'
-import {BrowserRouter, Route} from 'react-router-dom'
+import { BrowserRouter, Route, Router, Switch, History } from "react-router-dom"
+import LocationFormContainer from '../containers/LocationFormContainer'
+import LocationsContainer from '../containers/LocationsContainer'
 import Show from '../containers/Show'
 
 const App = (props) => {
   return (
-
-
-
-
-    <div>
-      <BrowserRouter>
-        <Route path="/locations/:id" component={Show}/>
-      </BrowserRouter>
-    </div>
-
-
-
-
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/locations/new" component={LocationFormContainer} />
+        <Route exact path="/locations" component={LocationsContainer} />
+        <Route exact path="/locations/:id" component={Show} />
+      </Switch>
+    </BrowserRouter>
   )
 }
 
