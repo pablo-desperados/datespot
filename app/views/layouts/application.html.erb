@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
-  
+
 
   <%= csrf_meta_tags %>
 </head>
@@ -15,6 +15,7 @@
     <div class="top-bar-left">
       <ul class="menu">
         <li class="menu-text">DateSpot</li>
+        <li><%= link_to 'Locations', locations_path %></li>
       </ul>
     </div>
 
