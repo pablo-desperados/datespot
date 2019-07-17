@@ -158,6 +158,8 @@ class LocationFormContainer extends Component {
 
     return(
       <div>
+        <h1>Add a new Location</h1>
+
         <form onSubmit={this.handleFormSubmit}>
           {errorDiv}
           <TextField
