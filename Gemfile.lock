@@ -239,6 +239,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootsnap (>= 1.1.0)
+  bundler
   capybara
   database_cleaner
   devise
@@ -266,4 +267,4 @@ RUBY VERSION
    ruby 2.4.5p335
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
