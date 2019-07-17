@@ -138,7 +138,6 @@ class LocationFormContainer extends Component {
         }
       })
       .then((responseBody) => {
-        debugger
         this.props.history.push(`/locations/${responseBody.location.id}`)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));

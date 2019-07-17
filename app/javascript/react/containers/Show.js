@@ -10,7 +10,6 @@ class Show extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     fetch(`/api/v1/locations/${this.props.match.params.id}`)
     .then(response => response.json())
     .then(response =>{
