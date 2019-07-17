@@ -20,12 +20,12 @@ describe('Show location', () => {
 
   afterEach(fetchMock.restore)
 
+
   describe('date location show page', () => {
-    it ('renders title of location', () => {
-      setTimeout(()=>{
+    it ('renders title of location', (done) => {
+      setTimeout(() => {
         expect(wrapper.find('h1').text()).toEqual("Trillium")
         done()
-
       }, 0)
     })
   })
