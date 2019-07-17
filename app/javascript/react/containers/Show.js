@@ -10,7 +10,7 @@ class Show extends React.Component {
   }
 
   componentDidMount(){
-    fetch(`/api/v1${this.props.location.pathname}`)
+    fetch(`/api/v1/locations/${this.props.match.params.id}`)
     .then(response => response.json())
     .then(response =>{
       this.setState({chosenLocation: response})

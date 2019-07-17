@@ -7,9 +7,10 @@ const App = (props) => {
 
 
 
+
     <div>
       <BrowserRouter>
-        <Route path="/" component={Show}/>
+        <Route path="/locations/:id" component={Show}/>
       </BrowserRouter>
     </div>
 

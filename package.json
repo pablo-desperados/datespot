@@ -4,9 +4,8 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "babel-preset-react": "~6.24.1",
-    "prop-types": "~15.6.0",
+    "prop-types": "^15.6.2",
     "react": "~15.4.2",
-    "react-dom": "~15.4.2",
     "react-router-dom": "5.0.0",
     "redbox-react": "1.6.0"
   },
@@ -25,7 +24,9 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "2.0.1",
     "phantomjs-prebuilt": "~2.1.14",
-    "react-addons-test-utils": "~15.6.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-test-renderer": "^16.8.6",
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^2.11.1"
   },
