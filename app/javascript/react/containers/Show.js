@@ -5,20 +5,21 @@ class Show extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      chosenLocation : ""
+      chosenLocation : "",
+      reviews : []
     }
   }
 
   componentDidMount(){
-    fetch(`/api/v1${this.props.location.pathname}`)
+    fetch(`/api/v1/locations/${this.props.match.params.id}`)
     .then(response => response.json())
     .then(response =>{
-      this.setState({chosenLocation: response})
+      this.setState({chosenLocation: response.location, reviews: response.reviews})
     })
   }
 
   render(){
-
+    debugger
     return(
       <div>
         <ShowLocationTile
