@@ -10,7 +10,7 @@
   <ul>
     <% @locations.each do |location| %>
       <li>
-        <%= location.name %>
+        <%= link_to location.name, location_path(location.id) %>
       </li>
     <% end %>
   </ul>
