@@ -9,6 +9,11 @@ class ReviewFormContainer extends Component {
       body: "",
       errors: {}
     }
+    this.validateTitleChange = this.validateTitleChange.bind(this)
+    this.validateBodyChange = this.validateBodyChange.bind(this)
+    this.handleClearForm = this.handleClearForm.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleFormSubmit = this.handleFormSubmit.bind(this)
   }
 
   handleClearForm() {
@@ -57,31 +62,11 @@ class ReviewFormContainer extends Component {
       this.validateBodyChange(this.state.body)
     ) {
       let newReviewObject = {
-        title: this.state.title.
+        title: this.state.title,
         body: this.state.body
       }
-      fetch('/api/v1/reviews', {
-        credentials: 'same-origin',
-        method: 'POST',
-        body: JSON.stringify(newReviewObject),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'applpication/json'
-        }
-      })
-      .then((response) => {
-        if (response.ok) {
-          return response.json()
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-          throw(error)
-        }
-      })
-      .then((responseBody) => {
-        this.props.history.push(`/locations/${responseBody.location.id}`)
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
+      this.props.addReview(newReviewObject)
+      this.handleClearForm(event)
     }
   }
 
@@ -98,21 +83,19 @@ class ReviewFormContainer extends Component {
 
     return(
       <div>
-        <h3>Add a new review:</h3>
-
         <form onSubmit={this.handleFormSubmit}>
           {errorDiv}
           <ReviewTextField
             label="Review Title"
             name="title"
-            value={this.sate.name}
+            value={this.state.title}
             handleChange={this.handleChange}
           />
 
           <ReviewTextField
             label="Review Body"
             name="body"
-            value={this.sate.name}
+            value={this.state.body}
             handleChange={this.handleChange}
           />
 
