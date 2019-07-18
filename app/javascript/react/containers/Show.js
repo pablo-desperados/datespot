@@ -7,8 +7,7 @@ class Show extends React.Component {
     super(props)
     this.state = {
       chosenLocation : "",
-      reviews : [],
-      users: []
+      reviews : []
     }
   }
 

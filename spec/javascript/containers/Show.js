@@ -8,21 +8,23 @@ describe('Show location', () => {
 
   beforeEach(() => {
     location = {id: 1, name: 'Trillium', address: 'some screet', city: 'Boston', state: 'Ma', zip: '12345'}
-    wrapper = shallow (
+    wrapper = shallow(
       <Show/>
     )
 })
 
+    it("Should have the specified initial state", () => {
+    expect(wrapper.state()).toEqual({
+      chosenLocation: "", reviews: []
+    });
+    });
 
-
-  describe('date location show page', () => {
     it ('renders title of location', () => {
-        expect(wrapper.setState({chosenLocation : location}))
-        setTimeout(() => {
-        expect(wrapper.find('h1')).toBePresent()
-        expect(wrapper.find('h1').text()).toEqual("Trillium")
-        done()
-      }, 0)
+        wrapper.setState({chosenLocation: location, reviews: [{id:1,title: "hello",body:"hello", user_id: 1, location_id:1}]})
+        expect(wrapper.find('ShowLocationTile')).toBePresent()
+        expect(wrapper.find('ShowLocationTile').props()).toEqual(
+          {name: 'Trillium', address: 'some screet', city: 'Boston', state: 'Ma', zip: '12345'}
+        )
+
+      })
     })
-  })
-})

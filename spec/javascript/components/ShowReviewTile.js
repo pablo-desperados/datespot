@@ -3,7 +3,8 @@ import React from 'react';
 
 describe('ShowReviewTile', () => {
   let title,
-      body
+      body,
+      wrapper
 
       beforeEach(() => {
         wrapper = shallow (
@@ -14,8 +15,7 @@ describe('ShowReviewTile', () => {
         );
       })
 
-  it("Renders title of review"), () => {
+      it("Renders title of review", () => {
     expect(wrapper.find('h4').text()).toEqual("This place is oh so romantic.")
-    expect(wrapper.find('p').text()).toEqual("I would definitely go on a date here again.")
-  }
+  })
 });
