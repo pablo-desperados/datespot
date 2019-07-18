@@ -1,4 +1,4 @@
-import Show from '../../../app/javascript/react/containers/Show'
+import ShowLocationContainer from '../../../app/javascript/react/containers/ShowLocationContainer'
 import fetchMock from 'fetch-mock'
 
 describe('Show location', () => {

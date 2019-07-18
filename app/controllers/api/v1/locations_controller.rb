@@ -2,6 +2,11 @@ class Api::V1::LocationsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
   before_action :authenticate_user!, except: [:index, :show]
 
+  def index
+    locations = Location.all
+    render json: locations
+  end
+
   def show
     location = Location.find(params["id"])
     reviews = location.reviews

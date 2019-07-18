@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Router, Switch, History } from "react-router-dom"
 import LocationFormContainer from '../containers/LocationFormContainer'
 import LocationsContainer from '../containers/LocationsContainer'
-import Show from '../containers/Show'
+import ShowLocationContainer from '../containers/ShowLocationContainer'
 
 const App = (props) => {
   return (
@@ -10,7 +10,7 @@ const App = (props) => {
       <Switch>
         <Route exact path="/locations/new" component={LocationFormContainer} />
         <Route exact path="/locations" component={LocationsContainer} />
-        <Route exact path="/locations/:id" component={Show} />
+        <Route exact path="/locations/:id" component={ShowLocationContainer} />
       </Switch>
     </BrowserRouter>
   )
