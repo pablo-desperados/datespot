@@ -2,7 +2,7 @@ import React from 'react';
 
 const TextField = (props) => {
   return(
-    <div>
+    <div className="textfield">
       <label>{props.label}
         <input
           type="text"

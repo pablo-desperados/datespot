@@ -31,20 +31,26 @@ class LocationsContainer extends React.Component {
 
     let locations = this.state.locations.map(location => {
       return(
-        <LocationTile
-          key={location.id}
-          id={location.id}
-          name={location.name}
-        />
+        <div>
+          <LocationTile
+            key={location.id}
+            id={location.id}
+            name={location.name}
+          />
+        </div>
       )
     })
 
     return(
-      <div>
-        <h1>The Locations!</h1>
+      <div className="callout">
+        <h1>DateSpots!</h1>
 
         <Link to="/locations/new">Submit New Location</Link>
-          {locations}
+
+          <div className="wrapper">
+            {locations}
+          </div>
+
       </div>
     )
   }
