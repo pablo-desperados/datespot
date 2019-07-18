@@ -5,7 +5,8 @@ class Api::V1::LocationsController < ApplicationController
   def show
     location = Location.find(params["id"])
     reviews = location.reviews
-    payload = {"location":location, "reviews": reviews }
+    users = reviews.map{|review| review.user}
+    payload = {"location":location, "reviews": reviews, "users": users }
     render json: payload
   end
 

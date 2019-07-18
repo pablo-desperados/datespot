@@ -1,12 +1,14 @@
 import React from 'react'
-import ShowLocationTile from '../components/ShowLocationTile'
+import ShowLocationTile from '../components/ShowTile'
+import ShowReviewTile from '../components/ShowReviewTile'
 
 class Show extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       chosenLocation : "",
-      reviews : []
+      reviews : [],
+      users: []
     }
   }
 
@@ -19,16 +21,33 @@ class Show extends React.Component {
   }
 
   render(){
-    debugger
+
+    let reviews = this.state.reviews.map(review => {
+      return(
+        <ShowReviewTile
+          key={review.id}
+          user={review.user_id}
+          title={review.title}
+          body={review.body}
+        />
+      )
+    })
+
     return(
       <div>
-        <ShowLocationTile
-          name={this.state.chosenLocation.name}
-          address={this.state.chosenLocation.address}
-          city={this.state.chosenLocation.city}
-          state={this.state.chosenLocation.state}
-          zip={this.state.chosenLocation.zip}
-        />
+        <div>
+          <ShowLocationTile
+            name={this.state.chosenLocation.name}
+            address={this.state.chosenLocation.address}
+            city={this.state.chosenLocation.city}
+            state={this.state.chosenLocation.state}
+            zip={this.state.chosenLocation.zip}
+          />
+        </div>
+
+        <div>
+          {reviews}
+        </div>
       </div>
     )
   }
