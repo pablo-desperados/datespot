@@ -8,22 +8,18 @@ describe('Show location', () => {
 
   beforeEach(() => {
     location = {id: 1, name: 'Trillium', address: 'some screet', city: 'Boston', state: 'Ma', zip: '12345'}
-    fetchMock.get(`/api/v1/locations/1`, {
-      status: 200,
-      body: location
-    });
-    routerProps = { params:  {id: 1} }
-    wrapper = mount(
-      <Show match={routerProps} />
+    wrapper = shallow (
+      <Show/>
     )
 })
 
-  afterEach(fetchMock.restore)
 
 
   describe('date location show page', () => {
-    it ('renders title of location', (done) => {
-      setTimeout(() => {
+    it ('renders title of location', () => {
+        expect(wrapper.setState({chosenLocation : location}))
+        setTimeout(() => {
+        expect(wrapper.find('h1')).toBePresent()
         expect(wrapper.find('h1').text()).toEqual("Trillium")
         done()
       }, 0)

@@ -16,20 +16,19 @@ class Show extends React.Component {
     fetch(`/api/v1/locations/${this.props.match.params.id}`)
     .then(response => response.json())
     .then(response =>{
-      this.setState({chosenLocation: response.location, reviews: response.reviews, users: response.users})
+      this.setState({chosenLocation: response.location, reviews: response.reviews})
     })
   }
 
   render(){
+
     let reviews = this.state.reviews.map(review => {
-      let user = this.state.users.find(user=> user.id === review.id)
       return(
         <ShowReviewTile
           key={review.id}
           user={review.user_id}
           title={review.title}
           body={review.body}
-          user = {user}
         />
       )
     })
