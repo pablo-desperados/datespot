@@ -4,15 +4,15 @@ import LocationsContainer from '../../../app/javascript/react/containers/Locatio
 import LocationTile from '../../../app/javascript/react/components/LocationTile';
 
 describe("LocationsContainer", () => {
-  let wrapper
+  let wrapper;
   let location = {
-    id: 1,
+    id: "1",
     name: "Chipotle",
     address: "Summer St",
     city: "Boston",
     state: "MA",
     zip: "02111"
-  }
+  };
 
   beforeEach(() => {
     wrapper = shallow(<LocationsContainer />)
@@ -25,7 +25,16 @@ describe("LocationsContainer", () => {
   });
 
   it("Should change the LocationsContainer state to include all available locations", () => {
-    expect(wrapper.setState({ locations: [location] }))
+    wrapper.setState({ locations: [location] });
+    expect(wrapper.find(LocationTile)).toBePresent();
+  });
+
+  it("Should change the LocationsContainer state to include all available locations", () => {
+    wrapper.setState({ locations: [location] });
+    expect(wrapper.find(LocationTile).props()).toEqual({
+      id: "1",
+      name: "Chipotle"
+    });
   });
 
 });
