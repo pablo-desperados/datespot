@@ -43,6 +43,7 @@ class LocationsContainer extends React.Component {
     return(
       <div>
         <h1>The Locations!</h1>
+        
         <Link to="/locations/new">Submit New Location</Link>
           {locations}
       </div>
@@ -50,4 +51,4 @@ class LocationsContainer extends React.Component {
   }
 }
 
-export default LocationsContainer
+export default LocationsContainer;
