@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
 
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,6 +15,7 @@
     <div class="top-bar-left">
       <ul class="menu">
         <li class="menu-text">DateSpot</li>
+        <li><%= link_to 'Locations', locations_path %></li>
       </ul>
     </div>
 
