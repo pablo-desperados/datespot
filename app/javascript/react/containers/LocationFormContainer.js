@@ -156,45 +156,50 @@ class LocationFormContainer extends Component {
     }
 
     return(
-      <div>
+      <div className="callout">
         <h1>Add a new Location</h1>
 
         <form onSubmit={this.handleFormSubmit}>
           {errorDiv}
-          <TextField
-            label="Location Name"
-            name="name"
-            value={this.state.name}
-            handleChange={this.handleChange}
-          />
 
-          <TextField
-            label="Address"
-            name="address"
-            value={this.state.address}
-            handleChange={this.handleChange}
-          />
+          <div className="location">
+            <TextField
+              label="Location Name"
+              name="name"
+              value={this.state.name}
+              handleChange={this.handleChange}
+            />
+          </div>
 
-          <TextField
-            label="City"
-            name="city"
-            value={this.state.city}
-            handleChange={this.handleChange}
-          />
+          <div className="address">
+            <TextField
+              label="Address"
+              name="address"
+              value={this.state.address}
+              handleChange={this.handleChange}
+            />
 
-          <TextField
-            label="State"
-            name="state"
-            value={this.state.state}
-            handleChange={this.handleChange}
-          />
+            <TextField
+              label="City"
+              name="city"
+              value={this.state.city}
+              handleChange={this.handleChange}
+            />
 
-          <TextField
-            label="Zip Code"
-            name="zip"
-            value={this.state.zip}
-            handleChange={this.handleChange}
-          />
+            <TextField
+              label="State"
+              name="state"
+              value={this.state.state}
+              handleChange={this.handleChange}
+            />
+
+            <TextField
+              label="Zip Code"
+              name="zip"
+              value={this.state.zip}
+              handleChange={this.handleChange}
+            />
+          </div>
 
           <input className="button" type="submit" value="Submit" />
         </form>
