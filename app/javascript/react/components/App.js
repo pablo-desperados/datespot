@@ -10,7 +10,8 @@ const App = (props) => {
       <Switch>
         <Route exact path="/locations/new" component={LocationFormContainer} />
         <Route exact path="/locations" component={LocationsContainer} />
-        <Route exact path="/locations/:id" component={Show} />
+        <Route exact path="/locations/:id" component={ShowLocationContainer} />
+        <Route exact path="/locations/:id"
       </Switch>
     </BrowserRouter>
   )
