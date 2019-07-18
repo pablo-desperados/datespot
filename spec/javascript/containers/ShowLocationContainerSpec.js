@@ -9,7 +9,7 @@ describe('Show location', () => {
   beforeEach(() => {
     location = {id: 1, name: 'Trillium', address: 'some screet', city: 'Boston', state: 'Ma', zip: '12345'}
     wrapper = shallow(
-      <Show/>
+      <ShowLocationContainer/>
     )
 })
 
