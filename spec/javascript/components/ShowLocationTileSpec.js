@@ -30,5 +30,4 @@ describe('ShowLocationTile', () => {
     expect(wrapper.find('p')).toBePresent();
   });
 
-
 });

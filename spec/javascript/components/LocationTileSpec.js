@@ -1,10 +1,9 @@
-import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import LocationTile from '../../../app/javascript/react/components/LocationTile';
 
 describe('LocationTile', () => {
-  let id, name, wrapper;
+  let wrapper;
 
   beforeEach(() => {
     wrapper = mount(
@@ -17,16 +16,8 @@ describe('LocationTile', () => {
     );
   });
 
-  it("Should render a component with the specific props for the location name", () => {
-    expect(wrapper.find(LocationTile)).toHaveProp('name')
-  });
-
-  it("Should render a component with the specific props for the location id", () => {
-    expect(wrapper.find(LocationTile)).toHaveProp('id')
-  });
-
-  it("Should have an h5 tag", () => {
-    expect(wrapper.find("h5")).toBePresent();
+  it("Should render an h5 tag containing the name received via props", () => {
+    expect(wrapper.find("h5").text()).toBe("Chipotle")
   });
 
   it("Should render a link to the show page for that location", () => {

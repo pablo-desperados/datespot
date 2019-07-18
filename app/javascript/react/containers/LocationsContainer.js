@@ -22,7 +22,6 @@ class LocationsContainer extends React.Component {
       }
     })
     .then((responseBody) => {
-
       return this.setState({ locations: responseBody })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -43,7 +42,7 @@ class LocationsContainer extends React.Component {
     return(
       <div>
         <h1>The Locations!</h1>
-        
+
         <Link to="/locations/new">Submit New Location</Link>
           {locations}
       </div>

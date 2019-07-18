@@ -1,7 +1,6 @@
 import { shallow, mount } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
 import React from 'react';
-import { BrowserRouter, Router, Link, Route } from 'react-router-dom';
 import fetchPonyfill from 'fetch-ponyfill';
 const {fetch, Request, Response, Headers} = fetchPonyfill({});
 
