@@ -1,7 +1,7 @@
 import React from 'react'
 import ShowLocationTile from '../components/ShowLocationTile'
 
-class Show extends React.Component {
+class ShowLocationContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -33,7 +33,4 @@ class Show extends React.Component {
   }
 }
 
-
-
-
-export default Show
+export default ShowLocationContainer;

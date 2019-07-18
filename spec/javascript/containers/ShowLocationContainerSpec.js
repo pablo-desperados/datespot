@@ -1,4 +1,4 @@
-import Show from '../../../app/javascript/react/containers/Show'
+import ShowLocationContainer from '../../../app/javascript/react/containers/ShowLocationContainer'
 import fetchMock from 'fetch-mock'
 
 describe('Show location', () => {
@@ -7,14 +7,23 @@ describe('Show location', () => {
   let routerProps
 
   beforeEach(() => {
-    location = {id: 1, name: 'Trillium', address: 'some screet', city: 'Boston', state: 'Ma', zip: '12345'}
+    location = {
+      id: 1,
+      name: 'Trillium',
+      address: 'some screet',
+      city: 'Boston',
+      state: 'Ma',
+      zip: '12345'
+    }
+
     fetchMock.get(`/api/v1/locations/1`, {
       status: 200,
       body: location
     });
+
     routerProps = { params:  {id: 1} }
     wrapper = mount(
-      <Show match={routerProps} />
+      <ShowLocationContainer match={routerProps} />
     )
 })
 
