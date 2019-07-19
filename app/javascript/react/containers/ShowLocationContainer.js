@@ -5,7 +5,8 @@ class ShowLocationContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      chosenLocation : ""
+      chosenLocation : {},
+      currentUser: {}
     }
   }
 
@@ -13,7 +14,7 @@ class ShowLocationContainer extends React.Component {
     fetch(`/api/v1/locations/${this.props.match.params.id}`)
     .then(response => response.json())
     .then(response =>{
-      this.setState({chosenLocation: response})
+      this.setState({chosenLocation: response.location, currentUser: current_user})
     })
   }
 

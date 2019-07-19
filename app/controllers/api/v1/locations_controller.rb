@@ -9,7 +9,7 @@ class Api::V1::LocationsController < ApplicationController
 
   def show
     location = Location.find(params["id"])
-    render json: location
+    render json: { location: location, current_user: current_user, location_user: location.user }
   end
 
   def create
@@ -22,9 +22,20 @@ class Api::V1::LocationsController < ApplicationController
     end
   end
 
+  def update
+    # run a check that currentUser == location.user
+
+  end
+
   private
 
   def location_params
     params.require(:location).permit(:name, :address, :city, :state, :zip, :user_id)
+  end
+
+  def authorize_user
+    if !user_signed_in?
+      render json: {message: "You do not have access."}
+    end
   end
 end
