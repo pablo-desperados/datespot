@@ -62,19 +62,6 @@ class ShowLocationContainer extends React.Component {
 
     return(
       <div>
-<<<<<<< HEAD
-        <ShowLocationTile
-          name={this.state.chosenLocation.name}
-          address={this.state.chosenLocation.address}
-          city={this.state.chosenLocation.city}
-          state={this.state.chosenLocation.state}
-          zip={this.state.chosenLocation.zip}
-        />
-        <h3>Add a new review here:</h3>
-        <ReviewFormContainer
-          addReview={this.addReview}
-        />
-=======
         <div>
           <ShowTile
             name={this.state.chosenLocation.name}
@@ -93,7 +80,6 @@ class ShowLocationContainer extends React.Component {
         <div>
           {reviews}
         </div>
->>>>>>> 07330946fddefdfe927fd8ccc74f7db1c6a67ea8
       </div>
     )
   }
