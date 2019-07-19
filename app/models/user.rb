@@ -11,4 +11,8 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :locations
+
+  def admin?
+    admin == true
+  end
 end
