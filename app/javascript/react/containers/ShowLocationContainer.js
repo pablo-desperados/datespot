@@ -1,6 +1,6 @@
 import React from 'react'
 import ReviewFormContainer from './ReviewFormContainer'
-import ShownTile from '../components/ShowTile'
+import ShowTile from '../components/ShowTile'
 import ShowReviewTile from '../components/ShowReviewTile'
 
 class ShowLocationContainer extends React.Component {
@@ -10,6 +10,7 @@ class ShowLocationContainer extends React.Component {
       chosenLocation: "",
       reviews: []
     }
+    this.addReview = this.addReview.bind(this)
   }
 
   componentDidMount(){
@@ -21,14 +22,14 @@ class ShowLocationContainer extends React.Component {
   }
 
 
-  addReview(){
-    fetch('/api/v1/reviews', {
+  addReview(item){
+    fetch(`/api/v1/locations/${this.props.match.params.id}/reviews`, {
       credentials: 'same-origin',
       method: 'POST',
-      body: JSON.stringify(newReviewObject),
+      body: JSON.stringify(item),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'applpication/json'
+        'Content-Type': 'application/json'
       }
     })
     .then((response) => {
@@ -42,13 +43,12 @@ class ShowLocationContainer extends React.Component {
     })
     .then((responseBody) => {
       let currentReviews = this.state.reviews
-      this.setState({ reviews: currentReviews.concat(body) })
+      this.setState({ reviews: currentReviews.concat(responseBody) })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
-
     let reviews = this.state.reviews.map(review => {
       return(
         <ShowReviewTile

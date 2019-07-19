@@ -30,7 +30,7 @@ class ReviewFormContainer extends Component {
       return false
     } else {
       let errorState = this.state.errors
-      delete errorState.inputError
+      delete errorState.title
       this.setState({ errors: errorState })
       return true
     }
@@ -43,16 +43,15 @@ class ReviewFormContainer extends Component {
       return false
     } else {
       let errorState = this.state.errors
-      delete errorState.inputError
+      delete errorState.body
       this.setState({ errors: errorState })
       return true
     }
   }
 
   handleChange(event) {
-    let value = event.target.value
-    let name = event.target.name
-    this.setState({ [name]: value })
+    let state = event.target.name
+    this.setState({[state]:event.target.value})
   }
 
   handleFormSubmit(event) {

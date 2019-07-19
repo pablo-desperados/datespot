@@ -1,7 +1,7 @@
-import ShowLocationTile from '../../../app/javascript/react/components/ShowLocationTile'
+import ShowTile from '../../../app/javascript/react/components/ShowTile'
 import React from 'react';
 
-describe('ShowLocationTile', () => {
+describe('ShowTile', () => {
   let name,
       address,
       city,
@@ -11,7 +11,7 @@ describe('ShowLocationTile', () => {
 
       beforeEach(() => {
         wrapper = mount (
-          <ShowLocationTile
+          <ShowTile
           name="Trillium"
           address="That big street in Boston"
           city="Boston"
