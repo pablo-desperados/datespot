@@ -1,12 +1,13 @@
 import React from 'react'
 import ReviewFormContainer from './ReviewFormContainer'
-import ShowLocationTile from '../components/ShowLocationTile'
+import ShownTile from '../components/ShowTile'
+import ShowReviewTile from '../components/ShowReviewTile'
 
 class ShowLocationContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      chosenLocation : "",
+      chosenLocation: "",
       reviews: []
     }
   }
@@ -15,7 +16,7 @@ class ShowLocationContainer extends React.Component {
     fetch(`/api/v1/locations/${this.props.match.params.id}`)
     .then(response => response.json())
     .then(response =>{
-      this.setState({chosenLocation: response})
+      this.setState({chosenLocation: response.location, reviews: response.reviews})
     })
   }
 
@@ -48,8 +49,20 @@ class ShowLocationContainer extends React.Component {
 
   render(){
 
+    let reviews = this.state.reviews.map(review => {
+      return(
+        <ShowReviewTile
+          key={review.id}
+          user={review.user_id}
+          title={review.title}
+          body={review.body}
+        />
+      )
+    })
+
     return(
       <div>
+<<<<<<< HEAD
         <ShowLocationTile
           name={this.state.chosenLocation.name}
           address={this.state.chosenLocation.address}
@@ -61,6 +74,26 @@ class ShowLocationContainer extends React.Component {
         <ReviewFormContainer
           addReview={this.addReview}
         />
+=======
+        <div>
+          <ShowTile
+            name={this.state.chosenLocation.name}
+            address={this.state.chosenLocation.address}
+            city={this.state.chosenLocation.city}
+            state={this.state.chosenLocation.state}
+            zip={this.state.chosenLocation.zip}
+          />
+        </div>
+        <div>
+          <h3>Add a new review here:</h3>
+          <ReviewFormContainer
+            addReview={this.addReview}
+          />
+        </div>
+        <div>
+          {reviews}
+        </div>
+>>>>>>> 07330946fddefdfe927fd8ccc74f7db1c6a67ea8
       </div>
     )
   }

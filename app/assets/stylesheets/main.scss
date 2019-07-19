@@ -1,1 +1,80 @@
 @import 'colors';
+
+body {
+  background-color: $white;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: lighter;
+
+  h1 {
+    text-align: center;
+    color: $blue;
+  }
+}
+
+.top-bar {
+  background-color: $light-blue;
+
+  .menu-text {
+    background-color: $light-blue;
+    color: $blue;
+  }
+
+  ul.menu {
+    background-color: $light-blue;
+
+    a:visited {
+      color: $white;
+    }
+
+    a:hover {
+      color: $blue;
+    }
+
+    a:active {
+      color: $white;
+      background-color: $blue;
+    }
+  }
+}
+
+.callout {
+  background-color: $grey;
+  max-width: 1050px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.textfield {
+  max-width: 500px;
+  display: inline-block;
+}
+
+.location {
+  width: 800px;
+}
+
+.callout.link {
+  background-color: $white;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+}
+
+.box {
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 300px;
+  height: 100px;
+  text-align: center;
+  padding-top: 30px;
+  border-width: 5px;
+  border-color: $light-blue;
+
+  a {
+    color: $blue;
+  }
+}

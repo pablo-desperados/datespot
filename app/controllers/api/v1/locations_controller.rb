@@ -9,7 +9,9 @@ class Api::V1::LocationsController < ApplicationController
 
   def show
     location = Location.find(params["id"])
-    render json: location
+    reviews = location.reviews
+    payload = {"location":location, "reviews": reviews}
+    render json: payload
   end
 
   def create
