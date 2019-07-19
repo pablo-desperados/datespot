@@ -1,13 +1,13 @@
 import React from 'react'
-import ShowLocationTile from '../components/ShowTile'
+import ShowTile from '../components/ShowTile'
 import ShowReviewTile from '../components/ShowReviewTile'
 
 class ShowLocationContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      chosenLocation : "",
-      reviews : []
+      chosenLocation: "",
+      reviews: []
     }
   }
 
@@ -35,7 +35,7 @@ class ShowLocationContainer extends React.Component {
     return(
       <div>
         <div>
-          <ShowLocationTile
+          <ShowTile
             name={this.state.chosenLocation.name}
             address={this.state.chosenLocation.address}
             city={this.state.chosenLocation.city}
