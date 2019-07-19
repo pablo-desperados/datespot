@@ -11,7 +11,11 @@ const ShowTile = props => {
   return(
     <div>
       <h1>{name}</h1>
-      <p>{address}, {city}, {state}, {zip}</p>
+      <div>
+        <div className="callout" id="details">
+          <p>{address}, {city}, {state}, {zip}</p>
+        </div>
+      </div>
     </div>
 
   )
