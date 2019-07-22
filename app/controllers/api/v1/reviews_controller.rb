@@ -1,4 +1,4 @@
-class Api::V1::ReviewsController < ApplicationController
+class Api::V1::ReviewsController < ApiController
 
   def create
     review = Review.new(review_params)
@@ -8,6 +8,8 @@ class Api::V1::ReviewsController < ApplicationController
       render json: review
     end
   end
+
+  private
 
   def review_params
     params.require(:review).permit(:title, :body, :location_id)
