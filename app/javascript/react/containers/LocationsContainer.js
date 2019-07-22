@@ -43,7 +43,7 @@ class LocationsContainer extends React.Component {
       <div className="callout">
         <h1>DateSpots!</h1>
 
-        <Link to="/locations/new">Submit New Location</Link>
+        <a href="/locations/new">Submit a New Location</a>
 
           <div className="wrapper">
             {locations}
