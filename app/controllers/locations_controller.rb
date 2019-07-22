@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :authenticate_user, except: [:index, :show]
+  before_action :authenticate_user, only: [:new]
 
   def new
     @location = Location.new

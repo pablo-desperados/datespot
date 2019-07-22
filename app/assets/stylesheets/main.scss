@@ -17,6 +17,7 @@ body {
   .menu-text {
     background-color: $light-blue;
     color: $blue;
+    font-size: 22px;
   }
 
   ul.menu {
@@ -77,4 +78,23 @@ body {
   a {
     color: $blue;
   }
+}
+
+.welcome{
+  background-color: $blue;
+  font-weight: bold;
+  color: $white;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.5em;
+
+}
+
+.goodbye{
+  background-color: $blue;
+  font-weight: bold;
+  color: $white;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.5em;
 }
