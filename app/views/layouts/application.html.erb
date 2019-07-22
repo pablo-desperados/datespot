@@ -33,7 +33,13 @@
   </div>
 
   <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
+    <% greeting= "" %>
+    <% if value == "Signed out successfully."%>
+      <% greeting = "goodbye"%>
+    <% else %>
+      <%greeting = "welcome"%>
+    <% end %>
+    <div class=" <%= greeting %> flash flash-<%= key %>">
       <%= value %>
     </div>
   <%- end -%>
