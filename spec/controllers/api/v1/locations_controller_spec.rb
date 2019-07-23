@@ -17,8 +17,10 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       zip: "02112",
       user_id: test_user.id
   )}
+  login_user
 
   it "Should resturn test_location" do
+    binding.pry
     get :show, params: {id: test_location.id}
     returned_json = JSON.parse(response.body)
 
@@ -28,5 +30,13 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
     expect(returned_json.length).to eq 2
     expect(returned_json["location"]["name"]).to eq "Top of the state"
     expect(returned_json["location"]["address"]).to eq "123 address st"
+  end
+
+  it "should update ratings of location by 1 or -1" do
+
+    get :update, params: {id: test_location.id, _json: 1}
+    expect(response.status).to eq 200
+    expect(response.content_type).to eq("application/json")
+
   end
 end

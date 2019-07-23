@@ -2,11 +2,14 @@ import ShowTile from '../../../app/javascript/react/components/ShowTile'
 import React from 'react';
 
 describe('ShowTile', () => {
-  let wrapper
+  let wrapper;
+  let handleClick =()=>{
 
+  }
       beforeEach(() => {
         wrapper = mount (
           <ShowTile
+          handleClick={handleClick}
           name="Trillium"
           address="That big street in Boston"
           city="Boston"
@@ -23,6 +26,5 @@ describe('ShowTile', () => {
   it("Should have an p tag", ()=>{
     expect(wrapper.find('p')).toBePresent("That big street in Boston, Boston, MA, 02420");
   });
-
 
 });
