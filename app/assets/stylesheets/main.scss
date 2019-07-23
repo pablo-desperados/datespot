@@ -1,4 +1,5 @@
 @import 'colors';
+@import url('https://fonts.googleapis.com/css?family=Bungee+Outline|Fascinate&display=swap');
 
 body {
   background-color: $white;
@@ -18,7 +19,8 @@ body {
     background-color: $light-blue;
 
     .title {
-      font-size: 22px;
+      font-family: 'Bungee Outline', cursive;
+      font-size: 30px;
 
       a:visited {
         color: $blue;
@@ -30,7 +32,6 @@ body {
 
       a:active {
         color: $blue;
-        background-color: $white;
       }
     }
   }
@@ -38,6 +39,7 @@ body {
   ul.menu.links {
     background-color: $light-blue;
     color: $white;
+    font-size: 20px;
 
     a:visited {
       color: $white;
@@ -71,18 +73,34 @@ body {
   display: inline-block;
 }
 
-.location {
-  width: 800px;
+.locations-title {
+  font-family: 'Fascinate', cursive;
 }
 
+.submit {
+  font-size: 20px;
+  text-align: center;
 
-.wrapper {
+  a:visited {
+    color: $blue;
+  }
+
+  a:hover {
+    font-style: italic;
+  }
+
+  a:active {
+    background-color: $light-blue
+  }
+}
+
+.location-wrapper {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 10px;
 }
 
-.box {
+.location-box {
   border-radius: 5px;
   padding: 20px;
   max-width: 300px;
@@ -92,22 +110,29 @@ body {
   border-width: 5px;
   border-color: $light-blue;
 
-  a {
+  a:visited {
     color: $blue;
+  }
+
+  a:hover {
+    font-style: italic;
   }
 }
 
-.welcome{
+.address {
+  text-align: center;
+}
+
+.welcome {
   background-color: $blue;
   font-weight: bold;
   color: $white;
   text-align: center;
   margin-top: 10px;
   font-size: 1.5em;
-
 }
 
-.goodbye{
+.goodbye {
   background-color: $blue;
   font-weight: bold;
   color: $white;
