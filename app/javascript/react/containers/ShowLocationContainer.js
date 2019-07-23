@@ -1,6 +1,7 @@
 import React from 'react'
 import ShowTile from '../components/ShowTile'
 import ShowReviewTile from '../components/ShowReviewTile'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 class ShowLocationContainer extends React.Component {
   constructor(props) {
@@ -9,6 +10,43 @@ class ShowLocationContainer extends React.Component {
       chosenLocation: "",
       reviews: []
     }
+    this.handleClick = this.handleClick.bind(this)
+    this.updateRatingFetch = this.updateRatingFetch.bind(this)
+  }
+
+  handleClick(event){
+    if (event.target.className.includes("circle-up")) {
+      this.updateRatingFetch(+1)
+    }else {
+      this.updateRatingFetch(-1)
+    }
+  }
+
+  updateRatingFetch(value){
+    fetch(`/api/v1/locations/${this.props.match.params.id}`,{
+      crendetials: 'same-origin',
+      method: 'PATCH',
+      body: value,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((response) => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error)
+      }
+    })
+    .then(response=>{
+      this.setState({chosenLocation: response.location})
+    })
+    .catch(error =>
+      console.error(`Error in fetch: ${error.message}`
+    ));
   }
 
   componentDidMount(){
@@ -36,11 +74,13 @@ class ShowLocationContainer extends React.Component {
       <div>
         <div>
           <ShowTile
+            handleClick={this.handleClick}
             name={this.state.chosenLocation.name}
             address={this.state.chosenLocation.address}
             city={this.state.chosenLocation.city}
             state={this.state.chosenLocation.state}
             zip={this.state.chosenLocation.zip}
+            rating={this.state.chosenLocation.rating}
           />
         </div>
 

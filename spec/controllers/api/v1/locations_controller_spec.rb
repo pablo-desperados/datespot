@@ -1,4 +1,5 @@
 require "rails_helper"
+require 'shared_contexts'
 
 
 RSpec.describe Api::V1::LocationsController, type: :controller do
@@ -6,7 +7,8 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
     first_name: "Pablo",
     last_name: "Mujica",
     email: "me@email.com",
-    password: "123456"
+    password: "123456",
+    admin: true
     )}
 
   let!(:test_location){Location.create(
@@ -18,7 +20,9 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       user_id: test_user.id
   )}
 
+
   it "Should resturn test_location" do
+     sign_in(test_user)
     get :show, params: {id: test_location.id}
     returned_json = JSON.parse(response.body)
 
@@ -28,5 +32,16 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
     expect(returned_json.length).to eq 2
     expect(returned_json["location"]["name"]).to eq "Top of the state"
     expect(returned_json["location"]["address"]).to eq "123 address st"
+  end
+
+  it "should update ratings of location by 1 or -1" do
+    sign_in(test_user)
+    get :update, params: {id: test_location.id , _json: 1}
+    returned_json = JSON.parse(response.body)
+    expect(response.status).to eq 200
+    expect(response.content_type).to eq("application/json")
+
+    expect(returned_json["location"]["rating"]).to eq(1)
+    expect(returned_json["location"]["name"]).to eq( "Top of the state")
   end
 end
