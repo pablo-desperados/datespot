@@ -22,4 +22,7 @@ RSpec.describe Location, type: :model do
   it { should have_valid(:zip).when('02420') }
   it { should_not have_valid(:zip).when(nil, "") }
 
+  it { should have_valid(:rating).when(0) }
+  it { should have_valid(:rating).when(Location.create.rating) }
+
 end
