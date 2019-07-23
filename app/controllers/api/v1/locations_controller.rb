@@ -24,9 +24,12 @@ class Api::V1::LocationsController < ApplicationController
     end
   end
 
-  def update
-    # run a check that currentUser == location.user
-
+  def destroy
+    binding.pry
+    location.destroy
+    respond_to do |format|
+      format.html { redirect_to locations_path }
+    end
   end
 
   private

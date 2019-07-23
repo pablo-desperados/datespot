@@ -36,12 +36,17 @@ class ShowLocationContainer extends React.Component {
       <div>
         <div>
           <ShowTile
+            key={this.state.chosenLocation.id}
             name={this.state.chosenLocation.name}
             address={this.state.chosenLocation.address}
             city={this.state.chosenLocation.city}
             state={this.state.chosenLocation.state}
             zip={this.state.chosenLocation.zip}
           />
+        </div>
+
+        <div>
+          <a href={`/locations/${this.state.chosenLocation.id}/edit`} >Edit</a>
         </div>
 
         <div>
