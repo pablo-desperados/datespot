@@ -19,13 +19,13 @@ RSpec.describe User, type: :model do
 
   it "New user should not be an admin" do
     user = User.new
-    expect(user.admin).to eq(false)
+    expect(user.admin?).to eq(false)
   end
 
   it "Admin user should be an admin" do
     user = User.new
     user.admin = true
-    expect(user.admin).to eq(true)
+    expect(user.admin?).to eq(true)
   end
 
 end
