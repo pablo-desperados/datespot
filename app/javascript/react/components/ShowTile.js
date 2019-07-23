@@ -9,9 +9,9 @@ const ShowTile = props => {
   let zip = props.zip
 
   return(
-    <div>
+    <div className="callout">
       <h1>{name}</h1>
-      <p>{address}, {city}, {state}, {zip}</p>
+      <p className="address">{address}, {city}, {state}, {zip}</p>
     </div>
 
   )

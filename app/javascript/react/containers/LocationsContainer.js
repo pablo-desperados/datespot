@@ -45,9 +45,9 @@ class LocationsContainer extends React.Component {
 
         <a href="/locations/new">Submit a New Location</a>
 
-          <div className="wrapper">
-            {locations}
-          </div>
+        <div className="wrapper">
+          {locations}
+        </div>
 
       </div>
     )
