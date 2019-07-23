@@ -46,9 +46,8 @@ class ShowLocationContainer extends React.Component {
     })
     .catch(error =>
       console.error(`Error in fetch: ${error.message}`
-      ));
-
-    }
+    ));
+  }
 
   componentDidMount(){
     fetch(`/api/v1/locations/${this.props.match.params.id}`)
