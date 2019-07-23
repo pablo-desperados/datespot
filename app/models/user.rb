@@ -13,4 +13,8 @@ class User < ApplicationRecord
   has_many :locations
 
   mount_uploader :profile_photo, ProfilePhotoUploader
+
+  def admin?
+    admin == true
+  end
 end
