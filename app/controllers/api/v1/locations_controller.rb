@@ -41,10 +41,9 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def authenticate_user
-   if !user_signed_in? || current_user.admin?
-     flash[:notice] = "You do not have access to this page."
-     redirect_to new_user_registration_path
-   end
- end
-
+    if !user_signed_in? || current_user.admin?
+      flash[:notice] = "You do not have access to this page."
+      redirect_to new_user_registration_path
+    end
+  end
 end

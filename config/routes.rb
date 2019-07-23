@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'locations#index'
   devise_for :users
-  resources :locations, only: [:index, :new, :show] do
+
+  resources :locations, only: [:index, :new, :create, :show] do
     resources :reviews, only: []
   end
 
