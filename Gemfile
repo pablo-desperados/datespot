@@ -48,6 +48,7 @@ gem 'capybara', group: [:development, :test]
 gem 'pry-rails', group: [:development, :test]
 gem 'jquery-rails'
 gem 'bundler'
+gem "font-awesome-rails"
 gem 'dotenv-rails', group: [:development, :test]
 gem 'launchy', group: [:development, :test]
 gem 'database_cleaner', group: [:development, :test]
