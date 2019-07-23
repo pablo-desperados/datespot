@@ -1,5 +1,4 @@
 require "rails_helper"
-require 'pry'
 
 RSpec.describe Api::V1::ReviewsController, type: :controller do
   describe "POST#create" do

@@ -6,6 +6,8 @@ class Api::V1::ReviewsController < ApiController
     review.user_id = current_user.id
     if review.save
       render json: review
+    else
+      render json: { error: location.errors.full_messages }
     end
   end
 
