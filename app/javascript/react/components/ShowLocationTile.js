@@ -9,10 +9,6 @@ const ShowLocationTile = props => {
   let zip = props.zip
 
 
-
-  // if currentUser == location.user
-  // create and render the edit button
-
   return(
     <div>
       <h1>{name}</h1>

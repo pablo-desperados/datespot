@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ShowLocationTile = props => {
+const ShowTile = props => {
 
   let name = props.name
   let address = props.address
@@ -17,4 +17,4 @@ const ShowLocationTile = props => {
   )
 }
 
-export default ShowLocationTile
+export default ShowTile
