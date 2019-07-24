@@ -11,6 +11,7 @@ class Api::V1::LocationsController < ApplicationController
   def show
     location = Location.find(params["id"])
     reviews = location.reviews
+
     payload = {"location":location, "reviews": reviews}
     render json: payload
   end
@@ -25,6 +26,21 @@ class Api::V1::LocationsController < ApplicationController
     end
   end
 
+  def destroy
+    Location.find(params["id"]).destroy
+    locations = Location.all
+    render json: locations
+  end
+
+  def update
+    location_to_update = Location.find(params[:id])
+    new_rating = params[:_json]
+    location_to_update.rating += new_rating.to_i
+    if location_to_update.save
+      render json: { location: location_to_update}
+    end
+  end
+
   private
 
   def location_params
@@ -33,8 +49,7 @@ class Api::V1::LocationsController < ApplicationController
 
   def authenticate_user
     if !user_signed_in?
-      flash[:notice] = "You do not have access to this page."
-      redirect_to new_user_registration_path
+      render json: {message: "You do not have access to this page."}, status: 403
     end
   end
 end

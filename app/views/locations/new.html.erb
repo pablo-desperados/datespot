@@ -15,6 +15,10 @@
     <% end %>
 
     <div class="field">
+      <%= f.file_field :location_picture %>
+    </div>
+
+    <div class="field">
       <%= f.label :name, "Location Name:" %>
       <%= f.text_field :name %>
     </div>
@@ -44,5 +48,5 @@
     </div>
 
   <% end %>
-  
+
 </div>

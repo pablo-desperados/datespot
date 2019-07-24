@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :authenticate_user, only: [:new]
+  before_action :authenticate_user, except: [:index, :show]
 
   def new
     @location = Location.new
@@ -14,13 +14,27 @@ class LocationsController < ApplicationController
     else
       render :new
     end
+  end
 
+  def edit
+    @location = Location.find(params[:id])
+  end
+
+  def update
+    @location = Location.find(params[:id])
+    if @location.update(location_params)
+      flash[:success] = 'Location was successfully updated.'
+      redirect_to @location
+    else
+      flash.now[:fail] = @location.errors.full_messages.join(", ")
+      render :edit
+    end
   end
 
   private
 
   def location_params
-    params.require(:location).permit(:name, :address, :city, :state, :zip, :user_id)
+    params.require(:location).permit(:name, :address, :city, :state, :zip, :user_id, :location_picture)
   end
 
   def authenticate_user
@@ -29,5 +43,4 @@ class LocationsController < ApplicationController
       redirect_to new_user_registration_path
     end
   end
-
 end

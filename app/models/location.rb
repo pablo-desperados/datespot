@@ -6,4 +6,7 @@ class Location < ApplicationRecord
   has_many :users, through: :ratings
   
   belongs_to :user
+
+  mount_uploader :location_picture, LocationPictureUploader
+
 end

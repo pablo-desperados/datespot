@@ -12,6 +12,7 @@ class ShowLocationContainer extends React.Component {
       reviews: [],
       error_message: ""
     }
+    this.handleDeleteLocation = this.handleDeleteLocation.bind(this)
     this.addReview = this.addReview.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.updateRatingFetch = this.updateRatingFetch.bind(this)
@@ -59,11 +60,27 @@ class ShowLocationContainer extends React.Component {
   componentDidMount(){
     fetch(`/api/v1/locations/${this.props.match.params.id}`)
     .then(response => response.json())
-    .then(response =>{
+    .then(response => {
       this.setState({chosenLocation: response.location, reviews: response.reviews})
     })
   }
 
+  handleDeleteLocation(event) {
+    event.preventDefault()
+    let locationId = this.state.chosenLocation.id
+    fetch(`/api/v1/locations/${locationId}`, {
+      credentials: 'same-origin',
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(remainingLocations => {
+      this.props.history.push(`/locations`, { locations: remainingLocations } )
+    })
+  }
 
   addReview(item){
     fetch(`/api/v1/locations/${this.props.match.params.id}/reviews`, {
@@ -108,6 +125,7 @@ class ShowLocationContainer extends React.Component {
       <h3>{this.state.error_message}</h3>
         <div>
           <ShowTile
+            key={this.state.chosenLocation.id}
             handleClick={this.handleClick}
             name={this.state.chosenLocation.name}
             address={this.state.chosenLocation.address}
@@ -115,7 +133,12 @@ class ShowLocationContainer extends React.Component {
             state={this.state.chosenLocation.state}
             zip={this.state.chosenLocation.zip}
             rating={this.state.chosenLocation.rating}
+            picture={this.state.chosenLocation.location_picture}
           />
+        </div>
+        <div>
+          <a className="button edit-button" href={`/locations/${this.state.chosenLocation.id}/edit`} >Edit</a>
+          <button className="button delete-button" onClick={this.handleDeleteLocation}>Delete</button>
         </div>
         <div>
           <h3>Add a new review here:</h3>
@@ -123,6 +146,7 @@ class ShowLocationContainer extends React.Component {
             addReview={this.addReview}
           />
         </div>
+
         <div>
           {reviews}
         </div>
@@ -131,4 +155,4 @@ class ShowLocationContainer extends React.Component {
   }
 }
 
-export default ShowLocationContainer;
+export default ShowLocationContainer

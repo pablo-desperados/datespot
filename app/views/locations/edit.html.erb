@@ -1,0 +1,34 @@
+<h1>Edit DateSpot</h1>
+
+<%= form_for([@location]) do |f| %>
+
+  <div class="field">
+    <%= f.label :name, "Location Name" %>
+    <%= f.text_field :name, id: :location_name  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address, id: :location_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city, id: :location_city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state, id: :location_state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zip %>
+    <%= f.text_field :zip, id: :location_zip %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
