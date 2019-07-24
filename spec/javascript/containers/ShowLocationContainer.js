@@ -15,7 +15,7 @@ describe('ShowLocationContainer', () => {
 
   it("Should have the specified initial state", () => {
     expect(wrapper.state()).toEqual({
-      chosenLocation: "", reviews: []
+      chosenLocation: "", reviews: [], error_message: ""
     });
   });
 
