@@ -11,9 +11,7 @@ class ShowLocationContainer extends React.Component {
       chosenLocation: "",
       reviews: []
     }
-<<<<<<< HEAD
     this.addReview = this.addReview.bind(this)
-=======
     this.handleClick = this.handleClick.bind(this)
     this.updateRatingFetch = this.updateRatingFetch.bind(this)
   }
@@ -51,7 +49,6 @@ class ShowLocationContainer extends React.Component {
     .catch(error =>
       console.error(`Error in fetch: ${error.message}`
     ));
->>>>>>> 43919114364248cf7b178d7e010f151cc5bb7522
   }
 
   componentDidMount(){
