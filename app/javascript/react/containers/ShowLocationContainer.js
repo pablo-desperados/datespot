@@ -77,8 +77,6 @@ class ShowLocationContainer extends React.Component {
     })
   }
 
-  render(){
-
   addReview(item){
     fetch(`/api/v1/locations/${this.props.match.params.id}/reviews`, {
       credentials: 'same-origin',
