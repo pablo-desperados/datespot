@@ -3,4 +3,7 @@ class Location < ApplicationRecord
 
   has_many :reviews
   belongs_to :user
+
+  mount_uploader :location_picture, LocationPictureUploader
+
 end

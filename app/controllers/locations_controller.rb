@@ -20,7 +20,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:name, :address, :city, :state, :zip, :user_id)
+    params.require(:location).permit(:name, :address, :city, :state, :zip, :user_id, :location_picture)
   end
 
   def authenticate_user
