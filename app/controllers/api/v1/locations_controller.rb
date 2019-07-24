@@ -27,16 +27,15 @@ class Api::V1::LocationsController < ApplicationController
 
   def update
     location_to_update = Location.find(params[:id])
-    user = current_user.id
     new_rating = params[:_json]
 
     submit_rating = Rating.new(
-      user_id: user,
-      location_id: location_to_update.id,
+      user: current_user,
+      location: location_to_update,
       rating: new_rating)
 
     record = Rating.where(
-      user_id: user,
+      user_id: current_user.id,
       location_id: location_to_update.id,
       rating: new_rating).exists?
 
@@ -46,7 +45,7 @@ class Api::V1::LocationsController < ApplicationController
       submit_rating.save
       location_to_update.rating += new_rating.to_i
       location_to_update.save
-      render json: { location: location_to_update}
+      render json: { location: location_to_update, error_message: "" }
     end
   end
 

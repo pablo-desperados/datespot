@@ -12,7 +12,7 @@ describe("LocationsContainer", () => {
     rating: 0,
     city: "Boston",
     state: "MA",
-    zip: "02111",
+    zip: "02111"
   };
 
   beforeEach(() => {
