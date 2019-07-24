@@ -25,4 +25,7 @@ RSpec.describe Location, type: :model do
   it { should have_valid(:rating).when(0) }
   it { should have_valid(:rating).when(Location.create.rating) }
 
+  it { should have_valid(:location_picture).when("/spec/support/images/watermelon.jpeg")}
+  it { should have_valid(:location_picture).when(Location.create.location_picture)}
+
 end
