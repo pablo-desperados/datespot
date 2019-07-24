@@ -22,8 +22,6 @@ feature 'user edits a location', %Q{
       user_id: user.id
     )
 
-    visit new_user_session_path
-
     sign_in_as(user)
 
     click_link 'Locations'
