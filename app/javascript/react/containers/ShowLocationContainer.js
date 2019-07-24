@@ -127,6 +127,7 @@ class ShowLocationContainer extends React.Component {
             state={this.state.chosenLocation.state}
             zip={this.state.chosenLocation.zip}
             rating={this.state.chosenLocation.rating}
+            picture={this.state.chosenLocation.location_picture}
           />
         </div>
         <div>
