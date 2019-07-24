@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root 'locations#index'
   devise_for :users
 
   resources :locations, only: [:index, :new, :create, :show] do
@@ -8,7 +7,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :locations, only: [:show, :create, :index, :update]
+      resources :locations, only: [:show, :create, :index, :update] do
+        resources :reviews, only: [:create]
+      end
     end
   end
+  root 'locations#index'
 end

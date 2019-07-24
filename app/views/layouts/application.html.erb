@@ -14,13 +14,14 @@
   <div class="top-bar">
     <div class="top-bar-left">
       <ul class="menu">
-        <li class="menu-text">DateSpot</li>
-        <li><%= link_to 'Locations', locations_path %></li>
+        <li class="menu-text title"><%= link_to 'DateSpot', root_path %></li>
       </ul>
     </div>
 
     <div class="top-bar-right">
-      <ul class="menu">
+      <ul class="menu links">
+        <li><%= link_to 'Locations', locations_path %></li>
+
         <%- if current_user -%>
           <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
@@ -34,11 +35,13 @@
 
   <%- flash.each do |key, value| -%>
     <% greeting= "" %>
+
     <% if value == "Signed out successfully."%>
       <% greeting = "goodbye"%>
     <% else %>
       <%greeting = "welcome"%>
     <% end %>
+
     <div class=" <%= greeting %> flash flash-<%= key %>">
       <%= value %>
     </div>
