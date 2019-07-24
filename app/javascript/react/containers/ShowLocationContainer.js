@@ -130,14 +130,14 @@ class ShowLocationContainer extends React.Component {
           />
         </div>
         <div>
+          <a className="button edit-button" href={`/locations/${this.state.chosenLocation.id}/edit`} >Edit</a>
+          <button className="button delete-button" onClick={this.handleDeleteLocation}>Delete</button>
+        </div>
+        <div>
           <h3>Add a new review here:</h3>
           <ReviewFormContainer
             addReview={this.addReview}
           />
-        </div>
-        <div>
-          <a href={`/locations/${this.state.chosenLocation.id}/edit`} >Edit</a>
-          <button onClick={this.handleDeleteLocation}>Delete</button>
         </div>
 
         <div>
