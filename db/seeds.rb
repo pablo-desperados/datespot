@@ -5,4 +5,4 @@ Location.create(name: 'The Paramount', address: '44 Charles St.', city: 'Boston'
 Location.create(name: 'Top of the Hub', address: '800 Boylston St.', city: 'Boston', state: 'MA', zip: '02199', user_id: 1)
 
 
-User.create!(email: 'Victor.Vitkov@gmail.com', password: 'CapyBara')
+User.create!(first_name: 'Pablo', last_name: 'P', email: 'Victor.Vitkov@gmail.com', password: 'CapyBara')
