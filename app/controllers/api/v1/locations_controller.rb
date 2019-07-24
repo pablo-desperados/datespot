@@ -48,7 +48,7 @@ class Api::V1::LocationsController < ApplicationController
 
   def authenticate_user
     if !user_signed_in?
-      render json: {message: "Error 404: You do not have access to this page."}
+      render json: {message: "You do not have access to this page."}, status: 403
     end
   end
 end
