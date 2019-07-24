@@ -5,7 +5,7 @@ const LocationTile = props => {
 
   return(
     <div>
-      <h5 className="box callout link"><Link to={`/locations/${props.id}`}>{props.name}</Link></h5>
+      <h5 className="location-box callout link"><Link to={`/locations/${props.id}`}>{props.name}</Link></h5>
     </div>
   )
 }
