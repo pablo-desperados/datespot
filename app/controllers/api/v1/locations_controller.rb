@@ -30,7 +30,7 @@ class Api::V1::LocationsController < ApplicationController
     locations = Location.all
     render json: locations
   end
-    
+
   def update
     location_to_update = Location.find(params[:id])
     new_rating = params[:_json]

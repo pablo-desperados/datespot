@@ -104,8 +104,8 @@ class ShowLocationContainer extends React.Component {
         </div>
 
         <div>
-          <a href={`/locations/${this.state.chosenLocation.id}/edit`} >Edit | </a>
-          <button onClick={this.handleDeleteLocation}>ANNIHILATE</button>
+          <a href={`/locations/${this.state.chosenLocation.id}/edit`} >Edit</a>
+          <button onClick={this.handleDeleteLocation}>Delete</button>
         </div>
 
         <div>

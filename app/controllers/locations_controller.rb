@@ -14,20 +14,6 @@ class LocationsController < ApplicationController
     else
       render :new
     end
-
-  end
-
-  private
-
-  def location_params
-    params.require(:location).permit(:name, :address, :city, :state, :zip, :user_id)
-  end
-
-  def authenticate_user
-    if !user_signed_in? || current_user.admin?
-      flash[:notice] = "You do not have access to this page."
-      redirect_to new_user_registration_path
-    end
   end
 
   def edit
@@ -49,5 +35,12 @@ class LocationsController < ApplicationController
 
   def location_params
     params.require(:location).permit(:name, :address, :city, :state, :zip)
+  end
+
+  def authenticate_user
+    if !user_signed_in? || current_user.admin?
+      flash[:notice] = "You do not have access to this page."
+      redirect_to new_user_registration_path
+    end
   end
 end

@@ -11,7 +11,6 @@ class LocationsContainer extends React.Component {
   };
 
   componentDidMount() {
-    console.log("amidoingthisright?")
     fetch('/api/v1/locations')
     .then((response) => {
       if (response.ok) {

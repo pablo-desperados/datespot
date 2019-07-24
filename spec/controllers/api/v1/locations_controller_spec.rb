@@ -1,7 +1,6 @@
 require "rails_helper"
 require 'shared_contexts'
 
-
 RSpec.describe Api::V1::LocationsController, type: :controller do
   let!(:test_user){User.create(
     first_name: "Pablo",
@@ -20,9 +19,8 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       user_id: test_user.id
   )}
 
-
-  it "Should resturn test_location" do
-     sign_in(test_user)
+  it "Should return test_location" do
+    sign_in(test_user)
     get :show, params: {id: test_location.id}
     returned_json = JSON.parse(response.body)
 
@@ -34,8 +32,6 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
     expect(returned_json["location"]["address"]).to eq "123 address st"
   end
 
-  it "Should delete the chosen location" do
-
   it "should update ratings of location by 1 or -1" do
     sign_in(test_user)
     get :update, params: {id: test_location.id , _json: 1}
@@ -45,5 +41,16 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
 
     expect(returned_json["location"]["rating"]).to eq(1)
     expect(returned_json["location"]["name"]).to eq( "Top of the state")
+  end
+
+  it "should delete a datespot" do
+    sign_in(test_user)
+    get :destroy, params: {id: test_location.id, _json: 1}
+
+    returned_json = JSON.parse(response.body)
+    expect(response.status).to eq 200
+    expect(response.content_type).to eq("application/json")
+
+    expect(returned_json.length).to eq 0
   end
 end
