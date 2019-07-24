@@ -25,11 +25,9 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def destroy
-    binding.pry
-    location.destroy
-    respond_to do |format|
-      format.html { redirect_to locations_path }
-    end
+    Location.find(params["id"]).destroy
+    locations = Location.all
+    render json: locations
   end
 
   private

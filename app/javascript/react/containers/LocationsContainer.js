@@ -11,6 +11,7 @@ class LocationsContainer extends React.Component {
   };
 
   componentDidMount() {
+    console.log("amidoingthisright?")
     fetch('/api/v1/locations')
     .then((response) => {
       if (response.ok) {
@@ -22,13 +23,13 @@ class LocationsContainer extends React.Component {
       }
     })
     .then((responseBody) => {
-      return this.setState({ locations: responseBody })
+
+      this.setState({ locations: responseBody })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render() {
-
     let locations = this.state.locations.map(location => {
       return(
           <LocationTile

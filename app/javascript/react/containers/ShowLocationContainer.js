@@ -9,13 +9,31 @@ class ShowLocationContainer extends React.Component {
       chosenLocation: "",
       reviews: []
     }
+    this.handleDeleteLocation = this.handleDeleteLocation.bind(this)
   }
 
   componentDidMount(){
     fetch(`/api/v1/locations/${this.props.match.params.id}`)
     .then(response => response.json())
-    .then(response =>{
+    .then(response => {
       this.setState({chosenLocation: response.location, reviews: response.reviews})
+    })
+  }
+
+  handleDeleteLocation(event) {
+    event.preventDefault()
+    let locationId = this.state.chosenLocation.id
+    fetch(`/api/v1/locations/${locationId}`, {
+      credentials: 'same-origin',
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(remainingLocations => {
+      this.props.history.push(`/locations`, { locations: remainingLocations } )
     })
   }
 
@@ -46,7 +64,8 @@ class ShowLocationContainer extends React.Component {
         </div>
 
         <div>
-          <a href={`/locations/${this.state.chosenLocation.id}/edit`} >Edit</a>
+          <a href={`/locations/${this.state.chosenLocation.id}/edit`} >Edit | </a>
+          <button onClick={this.handleDeleteLocation}>ANNIHILATE</button>
         </div>
 
         <div>
@@ -57,4 +76,4 @@ class ShowLocationContainer extends React.Component {
   }
 }
 
-export default ShowLocationContainer;
+export default ShowLocationContainer

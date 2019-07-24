@@ -29,4 +29,8 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
     expect(returned_json["location"]["name"]).to eq "Top of the state"
     expect(returned_json["location"]["address"]).to eq "123 address st"
   end
+
+  it "Should delete the chosen location" do
+    
+  end
 end
