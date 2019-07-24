@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :locations, only: [:show, :create, :index, :update] do
         resources :reviews, only: [:create]
+        resources :ratings, only: [:create]
       end
     end
   end

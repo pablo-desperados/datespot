@@ -9,7 +9,7 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
     email: "me@email.com",
     password: "123456",
     admin: true
-    )}
+  )}
 
   let!(:test_location){Location.create(
       name: "Top of the state",
@@ -50,28 +50,5 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
     expect(returned_json["reviews"].length).to eq 1
     expect(returned_json["reviews"][0]["body"]).to eq "JK IT SUKKKKKKED"
     expect(returned_json["reviews"][0]["title"]).to eq 'IT IS AMAZING!!!!!!!'
-  end
-
-  it "should update ratings of location by 1 or -1" do
-    sign_in(test_user)
-    get :update, params: {id: test_location.id , _json: 1}
-    returned_json = JSON.parse(response.body)
-    expect(response.status).to eq 200
-    expect(response.content_type).to eq("application/json")
-
-    expect(returned_json["location"]["rating"]).to eq(1)
-    expect(returned_json["location"]["name"]).to eq( "Top of the state")
-  end
-
-  it "should not update rating if user has already rated location" do
-    sign_in(test_user)
-    get :update, params: { id: test_location.id , _json: 1 }
-    get :update, params: { id: test_location.id , _json: 1 }
-    returned_json = JSON.parse(response.body)
-    expect(response.status).to eq 200
-    expect(response.content_type).to eq("application/json")
-
-    expect(returned_json["error_message"]).to eq("You have already voted for this location!")
-    expect(returned_json["location"]["rating"]).to_not eq(2)
   end
 end

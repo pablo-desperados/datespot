@@ -26,9 +26,9 @@ class ShowLocationContainer extends React.Component {
   }
 
   updateRatingFetch(value){
-    fetch(`/api/v1/locations/${this.props.match.params.id}`,{
+    fetch(`/api/v1/locations/${this.props.match.params.id}/ratings`,{
       crendetials: 'same-origin',
-      method: 'PATCH',
+      method: 'POST',
       body: value,
       headers: {
         'Accept': 'application/json',
