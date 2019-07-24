@@ -8,7 +8,8 @@ class ShowLocationContainer extends React.Component {
     super(props)
     this.state = {
       chosenLocation: "",
-      reviews: []
+      reviews: [],
+      error_message: ""
     }
     this.handleClick = this.handleClick.bind(this)
     this.updateRatingFetch = this.updateRatingFetch.bind(this)
@@ -17,7 +18,7 @@ class ShowLocationContainer extends React.Component {
   handleClick(event){
     if (event.target.className.includes("circle-up")) {
       this.updateRatingFetch(+1)
-    }else {
+    } else {
       this.updateRatingFetch(-1)
     }
   }
@@ -41,12 +42,16 @@ class ShowLocationContainer extends React.Component {
         throw(error)
       }
     })
-    .then(response=>{
-      this.setState({chosenLocation: response.location})
+    .then((response) =>{
+      if (response.error_message.length > 0) {
+        this.setState({ error_message: response.error_message })
+      } else {
+        this.setState({ chosenLocation: response.location })
+      }
     })
-    .catch(error =>
-      console.error(`Error in fetch: ${error.message}`
-    ));
+    .catch((error) =>
+      console.error(`Error in fetch: ${error.message}`)
+    );
   }
 
   componentDidMount(){
@@ -72,6 +77,7 @@ class ShowLocationContainer extends React.Component {
 
     return(
       <div>
+      <h3>{this.state.error_message}</h3>
         <div>
           <ShowTile
             handleClick={this.handleClick}

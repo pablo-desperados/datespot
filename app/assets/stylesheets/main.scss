@@ -45,19 +45,29 @@ body {
   display: block;
   margin: auto;
   margin-top: 20px;
+
+  .link {
+    background-color: $white;
+  }
+
+  .box {
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    padding-top: 30px;
+    border-width: 5px;
+    border-color: $light-blue;
+
+    a {
+      color: $blue;
+    }
+  }
 }
+
 
 .textfield {
   max-width: 500px;
   display: inline-block;
-}
-
-.location {
-  width: 800px;
-}
-
-.callout.link {
-  background-color: $white;
 }
 
 .wrapper {
@@ -66,20 +76,6 @@ body {
   grid-gap: 10px;
 }
 
-.box {
-  border-radius: 5px;
-  padding: 20px;
-  max-width: 300px;
-  height: 100px;
-  text-align: center;
-  padding-top: 30px;
-  border-width: 5px;
-  border-color: $light-blue;
-
-  a {
-    color: $blue;
-  }
-}
 
 .welcome{
   background-color: $blue;

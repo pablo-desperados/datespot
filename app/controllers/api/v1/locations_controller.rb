@@ -27,9 +27,25 @@ class Api::V1::LocationsController < ApplicationController
 
   def update
     location_to_update = Location.find(params[:id])
+    user = current_user.id
     new_rating = params[:_json]
-    location_to_update.rating += new_rating.to_i
-    if location_to_update.save
+
+    submit_rating = Rating.new(
+      user_id: user,
+      location_id: location_to_update.id,
+      rating: new_rating)
+
+    record = Rating.where(
+      user_id: user,
+      location_id: location_to_update.id,
+      rating: new_rating).exists?
+
+    if record == true
+      render json: { error_message: "You have already voted for this location!", location: location_to_update }
+    else
+      submit_rating.save
+      location_to_update.rating += new_rating.to_i
+      location_to_update.save
       render json: { location: location_to_update}
     end
   end
