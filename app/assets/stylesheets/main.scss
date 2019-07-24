@@ -1,6 +1,6 @@
 @import 'colors';
-@import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Bungee+Outline|Fascinate&display=swap');
+@import 'font-awesome';
+@import url('https://fonts.googleapis.com/css?family=Bungee+Outline|Luckiest+Guy&display=swap');
 
 body {
   background-color: $white;
@@ -10,6 +10,7 @@ body {
   h1 {
     text-align: center;
     color: $blue;
+    font-family: 'Luckiest Guy', cursive;
   }
 }
 
@@ -75,7 +76,7 @@ body {
 }
 
 .locations-title {
-  font-family: 'Fascinate', cursive;
+  font-family: 'Luckiest Guy', cursive;
 }
 
 .submit {
@@ -121,7 +122,16 @@ body {
 }
 
 .address {
+  display: inline-grid;
+  align-items: center;
+  margin-left: 30%;
   text-align: center;
+}
+
+.rating {
+  display: inline-grid;
+  text-align: center;
+  margin-left: 50px;
 }
 
 .welcome {
