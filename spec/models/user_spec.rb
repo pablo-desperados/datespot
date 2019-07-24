@@ -17,4 +17,15 @@ RSpec.describe User, type: :model do
   it { should have_valid(:password).when("1234567") }
   it { should_not have_valid(:email).when(nil,"") }
 
+  it "New user should not be an admin" do
+    user = User.new
+    expect(user.admin?).to eq(false)
+  end
+
+  it "Admin user should be an admin" do
+    user = User.new
+    user.admin = true
+    expect(user.admin?).to eq(true)
+  end
+
 end
