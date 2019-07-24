@@ -22,20 +22,20 @@ class LocationsContainer extends React.Component {
       }
     })
     .then((responseBody) => {
-      return this.setState({ locations: responseBody })
+
+      this.setState({ locations: responseBody })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render() {
-
     let locations = this.state.locations.map(location => {
       return(
-        <LocationTile
-          key={location.id}
-          id={location.id}
-          name={location.name}
-        />
+          <LocationTile
+            key={location.id}
+            id={location.id}
+            name={location.name}
+          />
       )
     })
 
