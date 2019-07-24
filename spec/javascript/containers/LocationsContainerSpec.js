@@ -9,6 +9,7 @@ describe("LocationsContainer", () => {
     id: "1",
     name: "Chipotle",
     address: "Summer St",
+    rating: 0,
     city: "Boston",
     state: "MA",
     zip: "02111"

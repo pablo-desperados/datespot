@@ -1,4 +1,5 @@
 @import 'colors';
+@import "font-awesome";
 
 body {
   background-color: $white;
@@ -97,4 +98,12 @@ body {
   text-align: center;
   margin-top: 10px;
   font-size: 1.5em;
+}
+
+.fa-arrow-circle-up{
+  color: green;
+}
+
+.fa-arrow-circle-down{
+  color: red;
 }
