@@ -1,5 +1,6 @@
 @import 'colors';
-@import "font-awesome";
+@import 'font-awesome';
+@import url('https://fonts.googleapis.com/css?family=Bungee+Outline|Luckiest+Guy&display=swap');
 
 body {
   background-color: $white;
@@ -9,20 +10,38 @@ body {
   h1 {
     text-align: center;
     color: $blue;
+    font-family: 'Luckiest Guy', cursive;
   }
 }
 
 .top-bar {
   background-color: $light-blue;
 
-  .menu-text {
+  .menu {
     background-color: $light-blue;
-    color: $blue;
-    font-size: 22px;
+
+    .title {
+      font-family: 'Bungee Outline', cursive;
+      font-size: 30px;
+
+      a:visited {
+        color: $blue;
+      }
+
+      a:hover {
+        color: $white;
+      }
+
+      a:active {
+        color: $blue;
+      }
+    }
   }
 
-  ul.menu {
+  ul.menu.links {
     background-color: $light-blue;
+    color: $white;
+    font-size: 20px;
 
     a:visited {
       color: $white;
@@ -45,6 +64,10 @@ body {
   display: block;
   margin: auto;
   margin-top: 20px;
+
+  .link {
+    background-color: $white;
+  }
 }
 
 .textfield {
@@ -52,21 +75,34 @@ body {
   display: inline-block;
 }
 
-.location {
-  width: 800px;
+.locations-title {
+  font-family: 'Luckiest Guy', cursive;
 }
 
-.callout.link {
-  background-color: $white;
+.submit {
+  font-size: 20px;
+  text-align: center;
+
+  a:visited {
+    color: $blue;
+  }
+
+  a:hover {
+    font-style: italic;
+  }
+
+  a:active {
+    background-color: $light-blue
+  }
 }
 
-.wrapper {
+.location-wrapper {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 10px;
 }
 
-.box {
+.location-box {
   border-radius: 5px;
   padding: 20px;
   max-width: 300px;
@@ -76,22 +112,38 @@ body {
   border-width: 5px;
   border-color: $light-blue;
 
-  a {
+  a:visited {
     color: $blue;
+  }
+
+  a:hover {
+    font-style: italic;
   }
 }
 
-.welcome{
+.address {
+  display: inline-grid;
+  align-items: center;
+  margin-left: 30%;
+  text-align: center;
+}
+
+.rating {
+  display: inline-grid;
+  text-align: center;
+  margin-left: 50px;
+}
+
+.welcome {
   background-color: $blue;
   font-weight: bold;
   color: $white;
   text-align: center;
   margin-top: 10px;
   font-size: 1.5em;
-
 }
 
-.goodbye{
+.goodbye {
   background-color: $blue;
   font-weight: bold;
   color: $white;
