@@ -65,7 +65,7 @@ class ShowLocationContainer extends React.Component {
       this.setState({chosenLocation: response.location, reviews: response.reviews})
     })
   }
-  
+
   componentDidMount(){
     this.loadContent()
   }
@@ -114,6 +114,7 @@ class ShowLocationContainer extends React.Component {
 
   render(){
     let reviews = this.state.reviews.map(review => {
+      debugger
       return(
         <ShowReviewTile
           key={review.review.id}

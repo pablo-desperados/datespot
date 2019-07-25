@@ -6,8 +6,8 @@ const ShowReviewTile = props => {
     profilePicture = props.userPhoto.url
   }
   return(
-    <div>
-      <img src={profilePicture}></img>
+    <div className="callout review">
+      <img className="profile-pic" src={profilePicture}></img>
       <h5>{props.userFirstName} {props.userLastName}</h5>
       <h4>{props.title}</h4>
       <p>{props.body}</p>
