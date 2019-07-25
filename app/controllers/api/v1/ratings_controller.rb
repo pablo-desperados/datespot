@@ -1,7 +1,7 @@
 class Api::V1::RatingsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
-  before_action :authenticate_user, only: [:update]
+  before_action :authenticate_user, only: [:create]
 
   def create
     location_to_update = Location.find(params[:location_id])
@@ -17,7 +17,7 @@ class Api::V1::RatingsController < ApplicationController
       location_id: location_to_update.id,
       rating: new_rating).exists?
 
-    if record == true
+    if record
       render json: { error_message: "You have already voted for this location!", location: location_to_update }
     else
       submit_rating.save
