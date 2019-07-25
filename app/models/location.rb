@@ -4,18 +4,17 @@ class Location < ApplicationRecord
   has_many :reviews
   has_many :ratings
   has_many :users, through: :ratings
-  
+
   belongs_to :user
 
   mount_uploader :location_picture, LocationPictureUploader
 
   def self.findusers(reviews)
-    completed_hash = []
-    reviews.each do |review|
+    completed_hash = reviews.map do |review|
       user = User.find(review.user_id)
-      completed_hash << user
+      return user
     end
-    return completed_hash
+     completed_hash
   end
 
   def self.combine(reviews, users)
@@ -25,6 +24,6 @@ class Location < ApplicationRecord
     reviews_arr.zip(users_arr).each do |review, user|
       combined_arr << {review: review, user: user}
     end
-    return combined_arr
+     combined_arr
   end
 end

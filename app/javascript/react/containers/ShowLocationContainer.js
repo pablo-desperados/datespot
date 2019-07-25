@@ -65,6 +65,7 @@ class ShowLocationContainer extends React.Component {
       this.setState({chosenLocation: response.location, reviews: response.reviews})
     })
   }
+  
   componentDidMount(){
     this.loadContent()
   }
