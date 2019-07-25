@@ -12,7 +12,7 @@ class Location < ApplicationRecord
   def self.findusers(reviews)
     completed_hash = reviews.map do |review|
       user = User.find(review.user_id)
-      return user
+        user
     end
      completed_hash
   end
