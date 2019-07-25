@@ -6,11 +6,11 @@ const ShowReviewTile = props => {
     profilePicture = props.userPhoto.url
   }
   return(
-    <div className="callout review">
-      <img className="profile-pic" src={profilePicture}></img>
-      <h5>{props.userFirstName} {props.userLastName}</h5>
-      <h4>{props.title}</h4>
-      <p>{props.body}</p>
+    <div className="callout review grid-x">
+      <img className="profile-pic cell small-2" src={profilePicture}></img>
+      <h5 className="username cell small-10">{props.userFirstName} {props.userLastName}</h5>
+      <h4 className="cell small-10 small-offset-1">{props.title}</h4>
+      <p className="cell small-10 small-offset-1">{props.body}</p>
     </div>
   )
 }

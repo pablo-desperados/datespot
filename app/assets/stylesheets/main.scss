@@ -214,8 +214,15 @@ body {
 
 .profile-pic{
   max-width: 80px;
+  height: auto;
 }
 
 .review{
   background-color: #adc8e2;
+
+}
+
+.username{
+  display: inline;
+  padding-left: 10px;
 }
