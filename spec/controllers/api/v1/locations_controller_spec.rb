@@ -7,7 +7,8 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
     last_name: "Mujica",
     email: "me@email.com",
     password: "123456",
-    admin: true
+    admin: true,
+    profile_photo: File.open("#{Rails.root}/spec/support/images/watermelon.jpeg")
   )}
 
   let!(:test_location){Location.create(
@@ -48,8 +49,12 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       expect(response.content_type).to eq("application/json")
 
       expect(returned_json["reviews"].length).to eq 1
-      expect(returned_json["reviews"][0]["body"]).to eq "JK IT SUKKKKKKED"
-      expect(returned_json["reviews"][0]["title"]).to eq 'IT IS AMAZING!!!!!!!'
+      expect(returned_json["reviews"][0]["review"]["body"]).to eq "JK IT SUKKKKKKED"
+      expect(returned_json["reviews"][0]["review"]["title"]).to eq 'IT IS AMAZING!!!!!!!'
+      expect(returned_json["reviews"][0]["user"]["profile_photo"]["url"]).to eq "/uploads/user/profile_photo/2/watermelon.jpeg"
+      expect(returned_json["reviews"][0]["user"]["first_name"]).to eq "Pablo"
+      expect(returned_json["reviews"][0]["user"]["last_name"]).to eq "Mujica"
+
     end
   end
 
