@@ -9,19 +9,21 @@ const ShowTile = props => {
   let zip = props.zip
   let rating = props.rating
   let picture;
+
   if (props.picture) {
     picture = props.picture.url
   }
 
-
   return(
     <div className="callout">
       <h1>{name}</h1>
-      <img src={picture}></img>
-      <div>
-        <div className="rating">
+
+      <div className="location-info">
+        <img src={picture}></img>
+
+        <div>
           <i onClick={props.handleClick} className="fa fa-arrow-circle-up fa-2x"></i>
-          <h3>{rating}</h3>
+          <h3 className="rating">{rating}</h3>
           <i onClick={props.handleClick} className="fa fa-arrow-circle-down fa-2x"></i>
         </div>
 

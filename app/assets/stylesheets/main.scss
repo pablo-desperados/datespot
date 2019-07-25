@@ -10,7 +10,13 @@ body {
   h1 {
     text-align: center;
     color: $blue;
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Luckiest Guy', sans-serif;
+  }
+
+  h2 {
+    text-align: center;
+    color: $blue;
+    font-weight: bold;
   }
 }
 
@@ -21,7 +27,7 @@ body {
     background-color: $light-blue;
 
     .title {
-      font-family: 'Bungee Outline', cursive;
+      font-family: 'Bungee Outline', sans-serif;
       font-size: 30px;
 
       a:visited {
@@ -83,14 +89,13 @@ body {
   }
 }
 
-
 .textfield {
   max-width: 500px;
   display: inline-block;
 }
 
 .locations-title {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Luckiest Guy', sans-serif;
 }
 
 .submit {
@@ -120,11 +125,15 @@ body {
   border-radius: 5px;
   padding: 20px;
   max-width: 300px;
-  height: 100px;
+  height: 120px;
   text-align: center;
   padding-top: 30px;
   border-width: 5px;
   border-color: $light-blue;
+
+  .index-rating {
+    text-align: center;
+  }
 
   a:visited {
     color: $blue;
@@ -135,17 +144,43 @@ body {
   }
 }
 
-.address {
-  display: inline-grid;
-  align-items: center;
-  margin-left: 30%;
+.location-info {
   text-align: center;
-}
+  display: block;
 
-.rating {
-  display: inline-grid;
-  text-align: center;
-  margin-left: 50px;
+  img {
+    max-width: 500px;
+    height: auto;
+    display: inline-block;
+  }
+
+  .fa-arrow-circle-up{
+    color: green;
+    width: 40px;
+    margin: 0px;
+    display: inline-block;
+  }
+
+  .fa-arrow-circle-down{
+    color: red;
+    width: 40px;
+    margin: 0px;
+    display: inline-block;
+  }
+
+  .rating {
+    width: 40px;
+    margin: auto;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .address {
+    text-align: center;
+    p {
+      margin-bottom: 0px;
+    }
+  }
 }
 
 .welcome {
@@ -166,13 +201,6 @@ body {
   font-size: 1.5em;
 }
 
-.fa-arrow-circle-up{
-  color: green;
-}
-
-.fa-arrow-circle-down{
-  color: red;
-}
 
 .delete-button{
   margin-left: 10px;

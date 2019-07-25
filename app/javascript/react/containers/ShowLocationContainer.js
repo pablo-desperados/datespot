@@ -141,7 +141,7 @@ class ShowLocationContainer extends React.Component {
           <button className="button delete-button" onClick={this.handleDeleteLocation}>Delete</button>
         </div>
         <div>
-          <h3>Add a new review here:</h3>
+          <h2>Add a new review here:</h2>
           <ReviewFormContainer
             addReview={this.addReview}
           />
