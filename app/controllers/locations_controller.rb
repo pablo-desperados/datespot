@@ -17,11 +17,8 @@ class LocationsController < ApplicationController
   end
 
   def edit
-    location = Location.find(params[:id])
-    if current_user.id == location.user_id
-      @location = location
-    else
-      @location = location
+    @location = Location.find(params[:id])
+    if current_user.id != @location.user_id
       redirect_to @location, notice: 'You are not authorized to edit this DateSpot!'
     end
   end
