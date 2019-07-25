@@ -15,6 +15,7 @@ class ShowLocationContainer extends React.Component {
     this.addReview = this.addReview.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.updateRatingFetch = this.updateRatingFetch.bind(this)
+    this.loadContent = this.loadContent.bind(this)
   }
 
   handleClick(event){
@@ -52,12 +53,15 @@ class ShowLocationContainer extends React.Component {
     ));
   }
 
-  componentDidMount(){
+  loadContent(){
     fetch(`/api/v1/locations/${this.props.match.params.id}`)
     .then(response => response.json())
     .then(response => {
       this.setState({chosenLocation: response.location, reviews: response.reviews})
     })
+  }
+  componentDidMount(){
+    this.loadContent()
   }
 
   handleDeleteLocation(event) {
@@ -97,8 +101,7 @@ class ShowLocationContainer extends React.Component {
       }
     })
     .then((responseBody) => {
-      let currentReviews = this.state.reviews
-      this.setState({ reviews: currentReviews.concat(responseBody) })
+      this.loadContent()
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -107,10 +110,12 @@ class ShowLocationContainer extends React.Component {
     let reviews = this.state.reviews.map(review => {
       return(
         <ShowReviewTile
-          key={review.id}
-          user={review.user_id}
-          title={review.title}
-          body={review.body}
+          key={review.review.id}
+          userFirstName={review.user.first_name}
+          userLastName={review.user.last_name}
+          userPhoto={review.user.profile_photo}
+          title={review.review.title}
+          body={review.review.body}
         />
       )
     })

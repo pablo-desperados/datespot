@@ -6,8 +6,10 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       first_name: "Pablo",
       last_name: "Mujica",
       email: "me@email.com",
-      password: "123456"
+      password: "123456",
+      profile_photo: "/spec/support/images/watermelon.jpeg"
       )}
+
     before do
       sign_in test_user
     end

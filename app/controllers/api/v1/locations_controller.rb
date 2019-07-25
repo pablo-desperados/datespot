@@ -10,9 +10,10 @@ class Api::V1::LocationsController < ApplicationController
 
   def show
     location = Location.find(params["id"])
-    reviews = location.reviews
-    
-    payload = {"location":location, "reviews": reviews}
+    all_reviews = location.reviews
+    all_users = Location.findusers(all_reviews)
+    combined_arr = Location.combine(all_reviews, all_users)
+    payload = {"location":location, "reviews": combined_arr}
     render json: payload
   end
 

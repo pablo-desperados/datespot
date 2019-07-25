@@ -5,14 +5,22 @@ describe('ShowReviewTile', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(
-      <ShowReviewTile title = "This place is oh so romantic."
-      body = "I would definitely go on a date here again." />
+    wrapper = mount(
+      <ShowReviewTile
+        userPhoto= "https://placebear.com/200/300"
+        userFirstName="Arya"
+        userLastName="Stark"
+        title="This place is oh so romantic."
+        body="I would definitely go on a date here again."
+      />
     );
   })
 
   it("Renders title of review", () => {
-    expect(wrapper.find('h4').text()).toEqual("This place is oh so romantic.")
-    expect(wrapper.find('p').text()).toEqual("I would definitely go on a date here again.")
+    expect(wrapper.props().title).toEqual("This place is oh so romantic.")
+    expect(wrapper.props().userFirstName).toEqual("Arya")
+    expect(wrapper.props().userLastName).toEqual("Stark")
+    expect(wrapper.props().body).toEqual("I would definitely go on a date here again.")
+    expect(wrapper.props().userPhoto).toEqual("https://placebear.com/200/300")
   })
 });
