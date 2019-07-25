@@ -31,11 +31,12 @@ class LocationsContainer extends React.Component {
   render() {
     let locations = this.state.locations.map(location => {
       return(
-          <LocationTile
-            key={location.id}
-            id={location.id}
-            name={location.name}
-          />
+        <LocationTile
+          key={location.id}
+          id={location.id}
+          name={location.name}
+          rating={location.rating}
+        />
       )
     })
 

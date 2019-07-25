@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :locations
+  has_many :ratings
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
