@@ -75,7 +75,6 @@ class ShowLocationContainer extends React.Component {
     .then(response => response.json())
     .then(remainingLocations => {
       if (remainingLocations.error_message.length > 0) {
-        debugger
         this.setState({ error_message: remainingLocations.error_message })
       } else {
         this.props.history.push(`/locations`, { locations: remainingLocations } )
