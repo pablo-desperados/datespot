@@ -19,6 +19,11 @@
     </div>
 
     <div class="field">
+      <%= f.label :category, "Category:" %>
+      <%= f.select :category, @category_collection %>
+    </div>
+
+    <div class="field">
       <%= f.label :name, "Location Name:" %>
       <%= f.text_field :name %>
     </div>

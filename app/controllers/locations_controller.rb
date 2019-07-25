@@ -3,6 +3,7 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    @category_collection = Location::CATEGORIES
   end
 
   def create
@@ -34,7 +35,15 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:name, :address, :city, :state, :zip, :user_id, :location_picture)
+    params.require(:location).permit(
+      :name,
+      :address,
+      :city,
+      :state,
+      :zip,
+      :user_id,
+      :location_picture,
+      :category)
   end
 
   def authenticate_user
