@@ -34,7 +34,8 @@ describe("LocationsContainer", () => {
     wrapper.setState({ locations: [location] });
     expect(wrapper.find(LocationTile).props()).toEqual({
       id: "1",
-      name: "Chipotle"
+      name: "Chipotle",
+      rating: 0
     });
   });
 

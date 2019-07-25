@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Location, type: :model do
   it { should belong_to(:user) }
   it { should have_many(:reviews) }
+  it { should have_many(:ratings) }
 
   it { should have_valid(:user).when(User.new) }
   it { should_not have_valid(:user).when(nil) }
