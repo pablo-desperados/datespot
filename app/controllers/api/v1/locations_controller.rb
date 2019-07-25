@@ -30,7 +30,7 @@ class Api::V1::LocationsController < ApplicationController
     location = Location.find(params["id"])
 
     if current_user.id == location.user_id
-      Location.find(params["id"]).destroy
+      location.destroy
       locations = Location.all
       render json: locations
     else

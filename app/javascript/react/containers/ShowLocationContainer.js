@@ -9,8 +9,7 @@ class ShowLocationContainer extends React.Component {
     super(props)
     this.state = {
       chosenLocation: "",
-      reviews: [],
-      error_message: ""
+      reviews: []
     }
     this.handleDeleteLocation = this.handleDeleteLocation.bind(this)
     this.addReview = this.addReview.bind(this)
@@ -74,11 +73,7 @@ class ShowLocationContainer extends React.Component {
     })
     .then(response => response.json())
     .then(remainingLocations => {
-      if (remainingLocations.error_message.length > 0) {
-        this.setState({ error_message: remainingLocations.error_message })
-      } else {
-        this.props.history.push(`/locations`, { locations: remainingLocations } )
-      }
+      this.props.history.push(`/locations`, { locations: remainingLocations } )
     })
   }
 
@@ -122,7 +117,6 @@ class ShowLocationContainer extends React.Component {
 
     return(
       <div>
-      <h3>{this.state.error_message}</h3>
         <div>
           <ShowTile
             key={this.state.chosenLocation.id}
