@@ -28,9 +28,15 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def destroy
-    Location.find(params["id"]).destroy
-    locations = Location.all
-    render json: locations
+    location = Location.find(params["id"])
+
+    if current_user.id == location.user_id
+      location.destroy
+      locations = Location.all
+      render json: locations
+    else
+      render json: {location: location, error_message: 'You are not authorized to delete this DateSpot!'}
+    end
   end
 
   def update
