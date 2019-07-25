@@ -114,7 +114,6 @@ class ShowLocationContainer extends React.Component {
 
   render(){
     let reviews = this.state.reviews.map(review => {
-      debugger
       return(
         <ShowReviewTile
           key={review.review.id}
