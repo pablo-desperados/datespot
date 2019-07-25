@@ -11,13 +11,14 @@ describe('LocationTile', () => {
         <LocationTile
           id="1"
           name="Chipotle"
+          rating="0"
         />
       </BrowserRouter>
     );
   });
 
   it("Should render an h5 tag containing the name received via props", () => {
-    expect(wrapper.find("h5").text()).toBe("Chipotle")
+    expect(wrapper.find("h5").text()).toBe("Chipotle Rating: 0 ")
   });
 
   it("Should render a link to the show page for that location", () => {

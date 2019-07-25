@@ -9,7 +9,8 @@ class ShowLocationContainer extends React.Component {
     super(props)
     this.state = {
       chosenLocation: "",
-      reviews: []
+      reviews: [],
+      error_message: ""
     }
     this.handleDeleteLocation = this.handleDeleteLocation.bind(this)
     this.addReview = this.addReview.bind(this)
@@ -21,15 +22,15 @@ class ShowLocationContainer extends React.Component {
   handleClick(event){
     if (event.target.className.includes("circle-up")) {
       this.updateRatingFetch(+1)
-    }else {
+    } else {
       this.updateRatingFetch(-1)
     }
   }
 
   updateRatingFetch(value){
-    fetch(`/api/v1/locations/${this.props.match.params.id}`,{
+    fetch(`/api/v1/locations/${this.props.match.params.id}/ratings`,{
       crendetials: 'same-origin',
-      method: 'PATCH',
+      method: 'POST',
       body: value,
       headers: {
         'Accept': 'application/json',
@@ -45,12 +46,16 @@ class ShowLocationContainer extends React.Component {
         throw(error)
       }
     })
-    .then(response=>{
-      this.setState({chosenLocation: response.location})
+    .then((response) =>{
+      if (response.error_message.length > 0) {
+        this.setState({ error_message: response.error_message })
+      } else {
+        this.setState({ chosenLocation: response.location })
+      }
     })
-    .catch(error =>
-      console.error(`Error in fetch: ${error.message}`
-    ));
+    .catch((error) =>
+      console.error(`Error in fetch: ${error.message}`)
+    );
   }
 
   loadContent(){
@@ -122,6 +127,7 @@ class ShowLocationContainer extends React.Component {
 
     return(
       <div>
+      <h3>{this.state.error_message}</h3>
         <div>
           <ShowTile
             key={this.state.chosenLocation.id}
@@ -140,7 +146,7 @@ class ShowLocationContainer extends React.Component {
           <button className="button delete-button" onClick={this.handleDeleteLocation}>Delete</button>
         </div>
         <div>
-          <h3>Add a new review here:</h3>
+          <h2>Add a new review here:</h2>
           <ReviewFormContainer
             addReview={this.addReview}
           />
