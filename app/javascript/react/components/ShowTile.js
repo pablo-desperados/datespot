@@ -8,8 +8,8 @@ const ShowTile = props => {
   let state = props.state
   let zip = props.zip
   let rating = props.rating
-  let picture;
   let category = props.category
+  let picture;
 
   if (props.picture) {
     picture = props.picture.url

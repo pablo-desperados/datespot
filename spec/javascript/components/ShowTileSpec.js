@@ -6,24 +6,23 @@ describe('ShowTile', () => {
   let wrapper;
   let handleClick;
 
+  beforeEach(() => {
+    jasmineEnzyme()
 
-      beforeEach(() => {
-        jasmineEnzyme()
-
-        handleClick = jasmine.createSpy('handleClick spy')
-        wrapper = mount (
-          <ShowTile
-          handleClick={handleClick}
-          name="Trillium"
-          address="That big street in Boston"
-          city="Boston"
-          state="MA"
-          zip="02420"
-          rating="99"
-          category="Fun"
-          />
-        );
-    })
+    handleClick = jasmine.createSpy('handleClick spy')
+    wrapper = mount (
+      <ShowTile
+      handleClick={handleClick}
+      name="Trillium"
+      address="That big street in Boston"
+      city="Boston"
+      state="MA"
+      zip="02420"
+      rating="99"
+      category="Fun"
+      />
+    );
+  })
 
   it("Should have an h1 tag for name", ()=>{
     expect(wrapper.find('h1').text()).toEqual("Trillium");

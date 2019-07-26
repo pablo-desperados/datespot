@@ -2,9 +2,11 @@ import React from 'react'
 
 const ShowReviewTile = props => {
   let profilePicture;
+
   if(props.userPhoto){
     profilePicture = props.userPhoto.url
   }
+
   return(
     <div className="callout review">
       <div className="grid-x grid-margin-x">
@@ -14,6 +16,7 @@ const ShowReviewTile = props => {
              <h6> User: {props.userFirstName} {props.userLastName}</h6>
           </div>
         </div>
+        
         <div className="cell small-10">
           <div className="grid-y">
             <div className="cell">

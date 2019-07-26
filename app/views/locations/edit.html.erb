@@ -1,6 +1,7 @@
 <h1>Edit DateSpot</h1>
 
-<%= form_for(@location) do |f| %>
+<div class="callout">
+  <%= form_for(@location) do |f| %>
 
   <div class="field">
     <%= f.label :category, "Category:" %>
@@ -36,4 +37,6 @@
     <%= f.submit %>
   </div>
 
-<% end %>
+  <% end %>
+
+</div>

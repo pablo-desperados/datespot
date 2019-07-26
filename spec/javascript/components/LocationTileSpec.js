@@ -15,7 +15,6 @@ describe('LocationTile', () => {
           category="Casual"
         />
       </BrowserRouter>
-
     );
   });
 

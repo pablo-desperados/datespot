@@ -9,7 +9,9 @@ class Location < ApplicationRecord
     "Romantic"
   ]
 
-  validates_presence_of :name, :address, :city, :state, :zip, :rating
+  validates_presence_of :name, :address, :city, :state
+  validates :rating, numericality: true
+  validates :zip, length: { is: 5 }
   validates :category,
     presence: true,
     inclusion: { in: CATEGORIES }

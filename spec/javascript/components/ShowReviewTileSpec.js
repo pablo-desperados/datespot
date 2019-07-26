@@ -2,7 +2,7 @@ import ShowReviewTile from '../../../app/javascript/react/components/ShowReviewT
 import React from 'react';
 
 describe('ShowReviewTile', () => {
-  let wrapper
+  let wrapper;
 
   beforeEach(() => {
     wrapper = mount(

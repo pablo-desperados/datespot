@@ -57,5 +57,4 @@ feature 'user submits a new location', %Q{
     visit new_location_path
     expect(page).to have_content('You do not have access to this page.')
   end
-
 end
