@@ -19,6 +19,7 @@ feature 'user edits a location', %Q{
       city: "Boston",
       state: "MA",
       zip: "02112",
+      category: "Casual",
       user_id: user.id
     )
 
@@ -30,6 +31,7 @@ feature 'user edits a location', %Q{
 
     visit edit_location_path(location.id)
 
+    select 'Casual', from: 'Category:'
     fill_in 'Location Name', with: 'Chipotle'
     fill_in 'Address', with: 'Summer St'
     fill_in 'City', with: 'Cambridge'

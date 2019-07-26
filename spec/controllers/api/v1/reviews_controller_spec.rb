@@ -20,6 +20,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         city: "Boston",
         state: "MA",
         zip: "02112",
+        category: "Casual",
         user_id: test_user.id
     )}
 
