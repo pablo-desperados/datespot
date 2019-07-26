@@ -29,15 +29,4 @@ const ShowReviewTile = props => {
   )
 }
 
-// <div>
-//   <div className="grid-x">
-//     <img className="profile-pic cell small-2" src={profilePicture}></img>
-//     <h5 className="username cell small-10">{props.userFirstName} {props.userLastName}</h5>
-//   </div>
-//     <div className="grid-y">
-//     <h4 className="cell small-10 small-offset-1">{props.title}</h4>
-//     <p className="cell small-10 small-offset-1">{props.body}</p>
-//     </div>
-// </div>
-
 export default ShowReviewTile
