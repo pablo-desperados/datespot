@@ -16,6 +16,7 @@ RSpec.describe Api::V1::RatingsController, type: :controller do
       city: "Boston",
       state: "MA",
       zip: "02112",
+      category: "Casual",
       user_id: test_user.id
   )}
 
@@ -28,6 +29,7 @@ RSpec.describe Api::V1::RatingsController, type: :controller do
 
     expect(returned_json["location"]["rating"]).to eq(1)
     expect(returned_json["location"]["name"]).to eq( "Top of the state")
+    expect(returned_json["location"]["category"]).to eq( "Casual")
   end
 
   it "should not update rating if user has already rated location" do

@@ -12,7 +12,8 @@ describe("LocationsContainer", () => {
     rating: 0,
     city: "Boston",
     state: "MA",
-    zip: "02111"
+    zip: "02111",
+    category: "Casual"
   };
 
   beforeEach(() => {
@@ -35,7 +36,8 @@ describe("LocationsContainer", () => {
     expect(wrapper.find(LocationTile).props()).toEqual({
       id: "1",
       name: "Chipotle",
-      rating: 0
+      rating: 0,
+      category: "Casual"
     });
   });
 
