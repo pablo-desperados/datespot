@@ -21,6 +21,9 @@ class LocationsController < ApplicationController
   def edit
     @location = Location.find(params[:id])
     @category_collection = Location::CATEGORIES
+    if current_user.id != @location.user_id
+      redirect_to @location, notice: 'You are not authorized to edit this DateSpot!'
+    end
   end
 
   def update

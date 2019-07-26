@@ -18,6 +18,9 @@ RSpec.describe User, type: :model do
   it { should have_valid(:password).when("1234567") }
   it { should_not have_valid(:email).when(nil,"") }
 
+  it { should have_valid(:profile_photo).when("/spec/support/images/watermelon.jpeg") }
+  it { should have_valid(:profile_photo).when(User.create.profile_photo)}
+
   it "New user should not be an admin" do
     user = User.new
     expect(user.admin?).to eq(false)
