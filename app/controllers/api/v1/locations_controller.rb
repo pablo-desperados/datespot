@@ -17,16 +17,6 @@ class Api::V1::LocationsController < ApplicationController
     render json: payload
   end
 
-  def create
-    location = Location.new(location_params)
-    location.user = current_user
-    if location.save
-      render json: { location: location }
-    else
-      render json: { error: location.errors.full_messages }
-    end
-  end
-
   def destroy
     location = Location.find(params["id"])
 
@@ -44,7 +34,7 @@ class Api::V1::LocationsController < ApplicationController
     new_rating = params[:_json]
     location_to_update.rating += new_rating.to_i
     if location_to_update.save
-      render json: { location: location_to_update}
+      render json: { location: location_to_update }
     end
   end
 

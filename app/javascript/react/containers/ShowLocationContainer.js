@@ -62,7 +62,7 @@ class ShowLocationContainer extends React.Component {
     fetch(`/api/v1/locations/${this.props.match.params.id}`)
     .then(response => response.json())
     .then(response => {
-      this.setState({chosenLocation: response.location, reviews: response.reviews})
+      this.setState({ chosenLocation: response.location, reviews: response.reviews })
     })
   }
 
@@ -128,7 +128,7 @@ class ShowLocationContainer extends React.Component {
 
     return(
       <div>
-      <h3>{this.state.error_message}</h3>
+      <h3 className="error">{this.state.error_message}</h3>
         <div>
           <ShowTile
             key={this.state.chosenLocation.id}
@@ -143,10 +143,12 @@ class ShowLocationContainer extends React.Component {
             category={this.state.chosenLocation.category}
           />
         </div>
+
         <div>
           <a className="button edit-button" href={`/locations/${this.state.chosenLocation.id}/edit`} >Edit</a>
           <button className="button delete-button" onClick={this.handleDeleteLocation}>Delete</button>
         </div>
+
         <div>
           <h2>Add a new review here:</h2>
           <ReviewFormContainer

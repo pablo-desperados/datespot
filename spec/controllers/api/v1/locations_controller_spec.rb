@@ -30,7 +30,7 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
 
   describe "show" do
     it "Should return test_location" do
-       sign_in(test_user)
+      sign_in(test_user)
       get :show, params: {id: test_location.id}
       returned_json = JSON.parse(response.body)
 
@@ -56,7 +56,6 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       expect(returned_json["reviews"][0]["user"]["profile_photo"]["url"]).to eq "/uploads/user/profile_photo/2/watermelon.jpeg"
       expect(returned_json["reviews"][0]["user"]["first_name"]).to eq "Pablo"
       expect(returned_json["reviews"][0]["user"]["last_name"]).to eq "Mujica"
-
     end
   end
 

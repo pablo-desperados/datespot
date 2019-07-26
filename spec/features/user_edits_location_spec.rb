@@ -28,7 +28,6 @@ feature 'user edits a location', %Q{
     click_link 'Locations'
     visit `/location/${location.id}`
 
-
     visit edit_location_path(location.id)
 
     select 'Casual', from: 'Category:'
