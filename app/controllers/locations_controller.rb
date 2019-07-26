@@ -3,6 +3,7 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    @category_collection = Location::CATEGORIES
   end
 
   def create
@@ -12,12 +13,14 @@ class LocationsController < ApplicationController
     if @location.save
       redirect_to @location, notice: "New Location Added"
     else
+      @category_collection = Location::CATEGORIES
       render :new
     end
   end
 
   def edit
     @location = Location.find(params[:id])
+    @category_collection = Location::CATEGORIES
     if current_user.id != @location.user_id
       redirect_to @location, notice: 'You are not authorized to edit this DateSpot!'
     end
@@ -37,7 +40,15 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:name, :address, :city, :state, :zip, :user_id, :location_picture)
+    params.require(:location).permit(
+      :name,
+      :address,
+      :city,
+      :state,
+      :zip,
+      :user_id,
+      :location_picture,
+      :category)
   end
 
   def authenticate_user

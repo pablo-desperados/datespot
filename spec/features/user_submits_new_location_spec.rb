@@ -21,6 +21,7 @@ feature 'user submits a new location', %Q{
 
     visit new_location_path
 
+    select 'Casual', from: 'Category:'
     fill_in 'Location Name', with: 'Chipotle'
     fill_in 'Address', with: 'Summer St'
     fill_in 'City', with: 'Boston'

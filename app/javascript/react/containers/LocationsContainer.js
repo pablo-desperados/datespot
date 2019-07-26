@@ -36,6 +36,7 @@ class LocationsContainer extends React.Component {
           id={location.id}
           name={location.name}
           rating={location.rating}
+          category={location.category}
         />
       )
     })

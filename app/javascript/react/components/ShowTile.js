@@ -9,6 +9,7 @@ const ShowTile = props => {
   let zip = props.zip
   let rating = props.rating
   let picture;
+  let category = props.category
 
   if (props.picture) {
     picture = props.picture.url
@@ -27,9 +28,11 @@ const ShowTile = props => {
           <i onClick={props.handleClick} className="fa fa-arrow-circle-down fa-2x"></i>
         </div>
 
+        <h4>Category: {category}</h4>
+
         <div className="address">
-          <p>{address}</p>
-          <p>{city}, {state}, {zip}</p>
+          <h5>{address}</h5>
+          <h5>{city}, {state}, {zip}</h5>
         </div>
       </div>
 
