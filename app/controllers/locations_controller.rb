@@ -13,12 +13,14 @@ class LocationsController < ApplicationController
     if @location.save
       redirect_to @location, notice: "New Location Added"
     else
+      @category_collection = Location::CATEGORIES
       render :new
     end
   end
 
   def edit
     @location = Location.find(params[:id])
+    @category_collection = Location::CATEGORIES
   end
 
   def update

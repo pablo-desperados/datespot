@@ -16,6 +16,7 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       city: "Boston",
       state: "MA",
       zip: "02112",
+      category: "Romantic",
       user_id: test_user.id
   )}
 
@@ -38,6 +39,7 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       expect(returned_json.length).to eq 2
       expect(returned_json["location"]["name"]).to eq "Top of the state"
       expect(returned_json["location"]["address"]).to eq "123 address st"
+      expect(returned_json["location"]["category"]).to eq "Romantic"
     end
 
     it "Should return a new reviews" do
