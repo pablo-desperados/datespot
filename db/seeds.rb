@@ -1,8 +1,8 @@
-turtle = File.open(File.join(Rails.root, 'public/images_seed/turtle.jpeg'))
-paramount = File.open(File.join(Rails.root, 'public/images_seed/download(37).jpg'))
-hub = File.open(File.join(Rails.root, 'public/images_seed/top-hub.jpeg'))
-user2 = File.open(File.join(Rails.root, 'public/images_seed/user2.jpeg'))
-user1 = File.open(File.join(Rails.root, 'public/images_seed/user1.jpeg'))
+turtle = File.open(File.join(Rails.root, '/public/images_seed/turtle.jpeg'))
+paramount = File.open(File.join(Rails.root, '/public/images_seed/download(37).jpg'))
+hub = File.open(File.join(Rails.root, '/public/images_seed/top-hub.jpeg'))
+user2 = File.open(File.join(Rails.root, '/public/images_seed/user2.jpeg'))
+user1 = File.open(File.join(Rails.root, '/public/images_seed/user1.jpeg'))
 
 User.create(first_name: 'Pablo', last_name: 'Mujica', email: 'pblmjc@gmail.com', password: '123123', admin: true, profile_photo: user1)
 User.create(first_name: 'Jo', last_name: 'Dillion', email: 'jd@gmail.com', password: '123123', admin: false, profile_photo: user2)
