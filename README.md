@@ -2,12 +2,13 @@
 
 DateSpot - never go on a boring date again!
 
-DateSpot is THE go-to app to help you decide where to go on your next date.
-Whether it's the first date, or date night with your wife/husband, DateSpot can
-help spice your next date up.
+Visti the website: https://datespot-io.herokuapp.com/
 
-Users will be able to log in, add locations, add reviews, and vote for their
-favorite spot to go on a date.
+## About
+DateSpot is THE go-to app to help you decide where to go on your next date. By creating a the profile of your favorite date destination, you can share with other users how fantastic (or not) the location is for their next date.
+
+Built on Ruby on Rails and React.
+
 
 Created by:
 
