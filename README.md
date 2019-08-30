@@ -9,6 +9,28 @@ DateSpot is THE go-to app to help you decide where to go on your next date. By c
 
 Built on Ruby on Rails and React.
 
+# Getting started
+
+After you fork, download, or clone the repo, please execute the following commands to get the application to run locally:
+
+```
+bundle install
+yarn install
+rake db:create
+rake db:migrate
+rake db:seed
+```
+Finally, run the following commands on separate tabs:
+
+```
+rails server
+yarn start
+```
+To access the application locally from your browser, visit:
+```
+localhost:3000/mainpage
+```
+***
 
 Created by:
 
